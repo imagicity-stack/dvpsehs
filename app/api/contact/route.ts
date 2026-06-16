@@ -43,14 +43,14 @@ export async function POST(req: Request) {
   const html = emailShell(
     "New Contact Message",
     rows,
-    "Someone has reached out through the website contact form.",
+    "Someone has reached out via the contact form on the <strong>Drona Valley Public School</strong> website (vsp.eldenheights.org).",
   );
   const text = rows.map((r) => `${r.label}: ${r.value.replace(/<[^>]+>/g, "")}`).join("\n");
 
   try {
     await sendMail({
       kind: "CONTACT",
-      subject: `Website enquiry: ${d.subject} — ${d.name}`,
+      subject: `[Drona Valley] Website enquiry: ${d.subject} — ${d.name}`,
       html,
       text,
       replyTo: `"${d.name}" <${d.email}>`,

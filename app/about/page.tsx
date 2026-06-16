@@ -182,7 +182,7 @@ export default function AboutPage() {
             </p>
             <p className="mt-3 text-pretty text-ink/75">
               For our families, this partnership means something wonderful: real continuity. The warmth and
-              values your child meets in our Toddler Nest are the very same ones that will guide them through
+              values your child meets in our Play class are the very same ones that will guide them through
               every grade that follows — all the way to a proud Class 12 graduation.
             </p>
             <a

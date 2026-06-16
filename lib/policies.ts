@@ -32,7 +32,7 @@ export const policies: Record<string, PolicyContent> = {
           {
             list: [
               "Parent/guardian details: name, email address, phone number and relationship to the child.",
-              "Child details you choose to share: name, date of birth and the programme of interest.",
+              "Child details you choose to share: name, date of birth and the class of interest.",
               "Enquiry content: any message, preferences or notes you submit through our registration or contact forms.",
               "Technical data: basic, non-identifying analytics such as pages visited and device type, used to keep the site working well.",
             ],
@@ -121,14 +121,14 @@ export const policies: Record<string, PolicyContent> = {
         id: "use-of-site",
         heading: "Use of this website",
         blocks: [
-          { p: "This website is provided for general information about the School and its programmes, and to let families make enquiries. You agree to use it lawfully and not to misuse it, attempt to disrupt it, or submit false, harmful or automated content." },
+          { p: "This website is provided for general information about the School and its classes, and to let families make enquiries. You agree to use it lawfully and not to misuse it, attempt to disrupt it, or submit false, harmful or automated content." },
         ],
       },
       {
         id: "information-accuracy",
         heading: "Accuracy of information",
         blocks: [
-          { p: "We work hard to keep information current, but details such as programmes, timings, fees and availability can change. Nothing on this website constitutes a binding offer of a place. Admissions are confirmed only through our formal enrolment process and written confirmation from the School." },
+          { p: "We work hard to keep information current, but details such as classes, timings, fees and availability can change. Nothing on this website constitutes a binding offer of a place. Admissions are confirmed only through our formal enrolment process and written confirmation from the School." },
         ],
       },
       {
@@ -180,7 +180,7 @@ export const policies: Record<string, PolicyContent> = {
     slug: "admissions",
     title: "Admissions Policy",
     updated: UPDATED,
-    intro: `${site.name} welcomes families from all backgrounds. This Admissions Policy explains how we offer places fairly, transparently and in the best interests of every child, across our four early-years programmes for ages 2 to 6.`,
+    intro: `${site.name} welcomes families from all backgrounds. This Admissions Policy explains how we offer places fairly, transparently and in the best interests of every child, across our four early-years classes — Play, Nursery, LKG and UKG — for ages 2 to 6.`,
     sections: [
       {
         id: "ethos",
@@ -195,10 +195,10 @@ export const policies: Record<string, PolicyContent> = {
         blocks: [
           { p: "Placement is guided primarily by the child's age as of the start of the academic session:" },
           { list: [
-            "Toddler Nest — 2 to 3 years",
-            "Playgroup — 3 to 4 years",
-            "Nursery / Pre-KG — 4 to 5 years",
-            "Kindergarten / KG — 5 to 6 years",
+            "Play — 2 to 3 years",
+            "Nursery — 3 to 4 years",
+            "Lower Kindergarten (LKG) — 4 to 5 years",
+            "Upper Kindergarten (UKG) — 5 to 6 years",
           ] },
           { p: "Where a child falls near a boundary, our team will recommend the stage that best fits their development, in conversation with the family." },
         ],
@@ -219,7 +219,7 @@ export const policies: Record<string, PolicyContent> = {
         id: "allocation",
         heading: "How places are allocated",
         blocks: [
-          { p: "Classes are intentionally small, so demand can exceed availability. When a programme is oversubscribed, we consider, in order:" },
+          { p: "Classes are intentionally small, so demand can exceed availability. When a class is oversubscribed, we consider, in order:" },
           { list: [
             "Siblings of current Drona Valley children and children of the wider Elden Heights family.",
             "Date of registration (earlier registrations are considered first).",
@@ -472,7 +472,7 @@ export const policies: Record<string, PolicyContent> = {
         id: "fee-structure",
         heading: "Fee structure",
         blocks: [
-          { p: "Fees vary by programme and are shared in writing during admission. They may include:" },
+          { p: "Fees vary by class and are shared in writing during admission. They may include:" },
           { list: [
             "A one-time registration/admission fee (non-refundable, unless stated otherwise).",
             "Tuition fees, payable per term or as set out in your fee schedule.",

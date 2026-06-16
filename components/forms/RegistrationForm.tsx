@@ -114,14 +114,14 @@ export function RegistrationForm() {
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div data-error={!!errors.program}>
-          <FieldShell label="Programme of interest" htmlFor="program" error={errors.program} required>
+          <FieldShell label="Class of interest" htmlFor="program" error={errors.program} required>
             <Select
               id="program"
               value={data.program}
               onChange={(e) => set("program", e.target.value)}
               error={!!errors.program}
             >
-              <option value="">Choose a programme…</option>
+              <option value="">Choose a class…</option>
               {programOptions.map((p) => (
                 <option key={p} value={p}>
                   {p}

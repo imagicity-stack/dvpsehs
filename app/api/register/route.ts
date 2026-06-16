@@ -37,7 +37,7 @@ export async function POST(req: Request) {
   const rows = [
     { label: "Child's name", value: esc(d.childName) },
     { label: "Date of birth", value: esc(d.childDob) },
-    { label: "Programme", value: esc(d.program) },
+    { label: "Class", value: esc(d.program) },
     { label: "Preferred start", value: esc(d.preferredStart || "—") },
     { label: "Parent / guardian", value: esc(d.parentName) },
     { label: "Email", value: `<a href="mailto:${esc(d.email)}">${esc(d.email)}</a>` },

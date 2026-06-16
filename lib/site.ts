@@ -31,7 +31,7 @@ export const site = {
   phoneSecondary: "+91 98765 43211",
   admissionsEmail: "admissions@eldenheights.org",
   generalEmail: "hello@eldenheights.org",
-  whatsapp: "+91 98765 43210",
+  whatsapp: "+91 72099 24683",
   address: {
     line1: "Drona Valley Campus, Elden Heights Education City",
     line2: "Sector 12, Greenfield Road",
@@ -61,7 +61,7 @@ export type NavLink = {
 export const primaryNav: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
-  { label: "Programmes", href: "/programs" },
+  { label: "Our Classes", href: "/programs" },
   { label: "Gallery", href: "/gallery" },
   { label: "Admissions", href: "/admissions" },
   { label: "Contact", href: "/contact" },

@@ -4,10 +4,10 @@
  */
 
 export const programOptions = [
-  "Toddler Nest (2–3 yrs)",
-  "Playgroup (3–4 yrs)",
-  "Nursery / Pre-KG (4–5 yrs)",
-  "Kindergarten / KG (5–6 yrs)",
+  "Play (2–3 yrs)",
+  "Nursery (3–4 yrs)",
+  "Lower Kindergarten / LKG (4–5 yrs)",
+  "Upper Kindergarten / UKG (5–6 yrs)",
   "Not sure yet — please advise",
 ] as const;
 
@@ -51,7 +51,7 @@ export function validateRegistration(d: Partial<RegistrationData>): ValidationRe
   const e: Record<string, string> = {};
   if (!d.childName || d.childName.trim().length < 2) e.childName = "Please enter your child's name.";
   if (!d.childDob) e.childDob = "Please add a date of birth.";
-  if (!d.program) e.program = "Please choose a programme.";
+  if (!d.program) e.program = "Please choose a class.";
   if (!d.parentName || d.parentName.trim().length < 2) e.parentName = "Please enter your name.";
   if (!d.email || !emailRe.test(d.email)) e.email = "Please enter a valid email.";
   if (!d.phone || !phoneRe.test(d.phone)) e.phone = "Please enter a valid phone number.";

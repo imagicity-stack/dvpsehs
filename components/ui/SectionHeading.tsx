@@ -17,8 +17,10 @@ export function SectionHeading({
     <div
       className={`${align === "center" ? "mx-auto text-center" : "text-left"} max-w-2xl ${className}`}
     >
-      {kicker && <span className="label-kicker mb-4">{kicker}</span>}
-      <h2 className="text-balance text-3xl font-bold leading-tight sm:text-4xl md:text-[2.6rem]">
+      {kicker && (
+        <span className={`label-kicker mb-5 ${align === "center" ? "justify-center" : ""}`}>{kicker}</span>
+      )}
+      <h2 className="font-display text-balance text-[2rem] font-semibold leading-[1.1] tracking-tight sm:text-4xl md:text-[2.7rem]">
         {title}
       </h2>
       {subtitle && (

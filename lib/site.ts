@@ -12,10 +12,18 @@ export const site = {
   tagline: "Where Little Wonders Take Their First Big Steps",
   // The strategic "parent company" thread woven throughout the site.
   parent: "The Elden Heights School",
+  parentShort: "Elden Heights",
   parentMotto: "Towards Eternal Glory",
   poweredBy: "Duniz Eduserv",
+  // Framed as a brand-new, proud partnership — the groundwork for the
+  // eventual transition of the Drona Valley identity into Elden Heights.
+  partnership: {
+    label: "In proud partnership with The Elden Heights School",
+    short: "An Elden Heights Partnership",
+    since: 2026,
+  },
   description:
-    "Drona Valley Public School is the joyful early-years wing of The Elden Heights School — a play-rich, nurturing pre-primary where curious 2–6 year olds learn, giggle and grow.",
+    "Drona Valley Public School has joined hands with The Elden Heights School — a proud new partnership bringing a world of luxury early learning to curious 2–6 year olds who play, giggle and grow.",
   url: "https://vsp.eldenheights.org",
   // Clearly-marked placeholders — replace with the school's real details.
   phonePrimary: "+91 98765 43210",
@@ -40,7 +48,7 @@ export const site = {
     instagram: "https://instagram.com",
     youtube: "https://youtube.com",
   },
-  establishedYear: 2014,
+  establishedYear: 2019,
 } as const;
 
 export type NavLink = {

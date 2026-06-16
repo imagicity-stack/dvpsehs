@@ -8,6 +8,9 @@ export type Program = {
   name: string;
   age: string;
   color: "sunshine" | "sky" | "coral" | "grass" | "grape" | "tangerine" | "bubblegum";
+  tone: "sky" | "coral" | "grass" | "grape" | "sunshine" | "bubblegum";
+  emoji: string;
+  img: string;
   tagline: string;
   blurb: string;
   highlights: string[];
@@ -20,6 +23,9 @@ export const programs: Program[] = [
     name: "Toddler Nest",
     age: "2 – 3 yrs",
     color: "bubblegum",
+    tone: "bubblegum",
+    emoji: "🧸",
+    img: "/images/program-toddler-nest.jpg",
     tagline: "First steps away from home, into a warm hug.",
     blurb:
       "A gentle, sensory-rich first experience of school. We focus on comfort, secure attachment and the magic of discovering the world through touch, sound and play.",
@@ -36,6 +42,9 @@ export const programs: Program[] = [
     name: "Playgroup",
     age: "3 – 4 yrs",
     color: "sky",
+    tone: "sky",
+    emoji: "🚂",
+    img: "/images/program-playgroup.jpg",
     tagline: "The wonder years — curiosity turned all the way up.",
     blurb:
       "Children become confident explorers. Through guided play, storytelling and outdoor adventures they build language, friendships and a love for figuring things out.",
@@ -52,6 +61,9 @@ export const programs: Program[] = [
     name: "Nursery (Pre-KG)",
     age: "4 – 5 yrs",
     color: "grass",
+    tone: "grass",
+    emoji: "🌟",
+    img: "/images/program-nursery.jpg",
     tagline: "Big ideas in little minds.",
     blurb:
       "A thoughtfully structured year that blends play with purpose. Children grow into independent thinkers, ready to read, write, count and collaborate.",
@@ -68,6 +80,9 @@ export const programs: Program[] = [
     name: "Kindergarten (KG)",
     age: "5 – 6 yrs",
     color: "tangerine",
+    tone: "sunshine",
+    emoji: "🎓",
+    img: "/images/program-kindergarten.jpg",
     tagline: "Ready, steady, school!",
     blurb:
       "The launchpad to formal schooling. Children consolidate literacy and numeracy, build confidence on stage, and step into Grade 1 brimming with self-belief.",
@@ -197,8 +212,17 @@ export const testimonials: Testimonial[] = [
 export type Stat = { value: string; label: string };
 
 export const stats: Stat[] = [
-  { value: "10+", label: "Joyful years" },
+  { value: "7+", label: "Joyful years" },
   { value: "1:8", label: "Avg. teacher ratio" },
   { value: "2,500+", label: "Happy graduates" },
   { value: "100%", label: "Play-based learning" },
+];
+
+export type Experience = { title: string; note: string; img: string; emoji: string; tone: "coral" | "sky" | "grass" | "grape" | "sunshine" | "bubblegum" };
+
+export const experiences: Experience[] = [
+  { title: "Messy, marvellous art", note: "Where little hands make big masterpieces.", img: "/images/experience-art.jpg", emoji: "🎨", tone: "coral" },
+  { title: "Wonder in the garden", note: "Mud kitchens, sprouting seeds and open skies.", img: "/images/experience-garden.jpg", emoji: "🌱", tone: "grass" },
+  { title: "Stories that sparkle", note: "Cosy corners and once-upon-a-times, every day.", img: "/images/experience-reading.jpg", emoji: "📚", tone: "grape" },
+  { title: "Music & movement", note: "Shake, sing, sway — joy you can hear.", img: "/images/experience-music.jpg", emoji: "🎶", tone: "sunshine" },
 ];

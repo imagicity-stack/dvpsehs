@@ -5,6 +5,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { ContactForm } from "@/components/forms/ContactForm";
+import { SmartImage } from "@/components/ui/SmartImage";
 import { site, fullAddress } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -124,23 +125,33 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map placeholder */}
+      {/* Campus / map */}
       <section className="container-wide pb-20">
-        <div className="relative overflow-hidden rounded-4xl border border-ink/5 shadow-card">
-          <div className="dot-grid flex h-64 items-center justify-center bg-grass-light/30 sm:h-80">
-            <div className="rounded-2xl bg-white/90 px-6 py-4 text-center shadow">
-              <MapPin className="mx-auto h-7 w-7 text-crimson" />
-              <p className="mt-2 font-display font-bold text-ink">{site.address.line1}</p>
-              <p className="text-sm text-ink/60">{site.address.city}, {site.address.region}</p>
-              <a
-                href={`https://maps.google.com/?q=${encodeURIComponent(fullAddress())}`}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-3 inline-block text-sm font-bold text-crimson hover:underline"
-              >
-                Open in Google Maps →
-              </a>
+        <div className="relative overflow-hidden rounded-[2rem] border-4 border-white shadow-lux">
+          <SmartImage
+            src="/images/contact-campus.jpg"
+            alt={`The ${site.shortName} campus`}
+            emoji="🏫"
+            tone="sky"
+            className="h-72 w-full sm:h-96"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
+          <div className="absolute bottom-5 left-5 right-5 flex flex-col items-start gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div className="rounded-2xl bg-white/90 px-5 py-4 shadow-lux backdrop-blur">
+              <div className="flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-crimson" />
+                <p className="font-display font-semibold text-ink">{site.address.line1}</p>
+              </div>
+              <p className="mt-1 text-sm text-ink/60">{site.address.city}, {site.address.region} · {site.address.postalCode}</p>
             </div>
+            <a
+              href={`https://maps.google.com/?q=${encodeURIComponent(fullAddress())}`}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-gold text-sm"
+            >
+              Open in Google Maps
+            </a>
           </div>
         </div>
       </section>

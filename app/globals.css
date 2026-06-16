@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-fredoka: "Fredoka", system-ui, sans-serif;
+  --font-nunito: "Nunito", system-ui, sans-serif;
+  --font-playfair: "Playfair Display", Georgia, serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-ink font-body antialiased;
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(61, 169, 224, 0.06), transparent 30%),
+      radial-gradient(circle at 88% 8%, rgba(255, 201, 60, 0.08), transparent 28%),
+      radial-gradient(circle at 78% 82%, rgba(91, 197, 122, 0.07), transparent 30%);
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-display font-semibold text-ink;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background-color: #FFC93C;
+    color: #2D2433;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
+  }
+
+  .container-wide {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+  }
+
+  /* Playful pill button */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-display font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-crimson text-white shadow-playful hover:-translate-y-0.5 hover:bg-crimson-dark focus-visible:ring-crimson/30;
+  }
+
+  .btn-sunshine {
+    @apply btn bg-sunshine text-ink shadow-[0_8px_0_0_#F4A500] hover:-translate-y-0.5 active:translate-y-0 active:shadow-[0_3px_0_0_#F4A500] focus-visible:ring-sunshine/40;
+  }
+
+  .btn-sky {
+    @apply btn bg-sky text-white shadow-[0_8px_0_0_#1E83BC] hover:-translate-y-0.5 active:translate-y-0 active:shadow-[0_3px_0_0_#1E83BC] focus-visible:ring-sky/40;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-ink/15 bg-white/70 text-ink hover:border-crimson/40 hover:text-crimson focus-visible:ring-crimson/20;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm font-semibold;
+  }
+
+  .card {
+    @apply rounded-4xl border border-ink/5 bg-white p-6 shadow-card transition-transform duration-300;
+  }
+
+  .link-underline {
+    @apply relative font-semibold text-crimson after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-crimson after:transition-all hover:after:w-full;
+  }
+
+  /* Decorative dotted/checkered backgrounds */
+  .dot-grid {
+    background-image: radial-gradient(rgba(45, 36, 51, 0.08) 1.5px, transparent 1.5px);
+    background-size: 22px 22px;
+  }
+
+  .label-kicker {
+    @apply inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-sm font-bold uppercase tracking-wide text-crimson shadow-sm ring-1 ring-crimson/10;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  /* Wavy section dividers use this for a hand-drawn feel */
+  .mask-wave-top {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 16px);
+    mask-image: linear-gradient(to bottom, transparent, black 16px);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -48,14 +48,14 @@ export async function POST(req: Request) {
   const html = emailShell(
     "New Admission / Registration Enquiry",
     rows,
-    "A family has submitted the registration form on the website.",
+    "A family has submitted the registration form on the <strong>Drona Valley Public School</strong> website (vsp.eldenheights.org).",
   );
   const text = rows.map((r) => `${r.label}: ${r.value.replace(/<[^>]+>/g, "")}`).join("\n");
 
   try {
     await sendMail({
       kind: "REG",
-      subject: `New registration: ${d.childName} — ${d.program}`,
+      subject: `[Drona Valley] New registration: ${d.childName} — ${d.program}`,
       html,
       text,
       replyTo: `"${d.parentName}" <${d.email}>`,

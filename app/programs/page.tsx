@@ -6,6 +6,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ProgramCard } from "@/components/sections/ProgramCard";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { WaveDivider } from "@/components/illustrations";
+import { SmartImage } from "@/components/ui/SmartImage";
 import { programs, aDayInLife } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -45,6 +46,30 @@ export default function ProgramsPage() {
               <ProgramCard program={p} />
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* Philosophy banner */}
+      <section className="container-wide pb-4">
+        <div className="relative overflow-hidden rounded-[2.25rem] border-4 border-white shadow-lux">
+          <SmartImage
+            src="/images/programs-banner.jpg"
+            alt="Children deep in joyful, hands-on learning"
+            emoji="🧒"
+            tone="grape"
+            className="h-72 w-full sm:h-80"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-wine-deep/85 via-wine-deep/40 to-transparent" />
+          <div className="absolute inset-0 flex items-center">
+            <div className="max-w-lg p-7 sm:p-12">
+              <p className="font-display text-2xl font-medium italic leading-snug text-ivory sm:text-3xl">
+                “Play is the highest form of research.”
+              </p>
+              <p className="mt-3 text-sm font-semibold uppercase tracking-wider text-gold-light">
+                The heart of how we teach
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

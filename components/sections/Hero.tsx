@@ -1,113 +1,128 @@
 import Link from "next/link";
-import { ArrowRight, PlayCircle, Star as StarIcon, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, Sparkles, Star as StarIcon } from "lucide-react";
 import { site } from "@/lib/site";
-import { Sun, Cloud, Rainbow, Balloon, Star, Confetti, PaperPlane, Squiggle } from "@/components/illustrations";
+import { EldenHeightsCrest } from "@/components/brand/EldenHeightsLogo";
+import { SmartImage } from "@/components/ui/SmartImage";
+import { Star, Balloon } from "@/components/illustrations";
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <Confetti className="opacity-70" />
-      {/* soft colour wash */}
-      <div className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-sunshine/25 blur-3xl" aria-hidden />
-      <div className="pointer-events-none absolute -right-20 top-40 h-80 w-80 rounded-full bg-sky/20 blur-3xl" aria-hidden />
+      {/* ambient luxe wash */}
+      <div className="pointer-events-none absolute -left-32 top-0 h-[34rem] w-[34rem] rounded-full bg-gold/10 blur-3xl" aria-hidden />
+      <div className="pointer-events-none absolute -right-24 top-24 h-[30rem] w-[30rem] rounded-full bg-crimson/10 blur-3xl" aria-hidden />
+      <div className="pointer-events-none absolute right-1/4 top-1/2 h-72 w-72 rounded-full bg-sky/10 blur-3xl" aria-hidden />
 
-      <div className="container-wide grid items-center gap-10 py-12 lg:grid-cols-2 lg:gap-8 lg:py-20">
+      <div className="container-wide grid items-center gap-12 py-12 lg:grid-cols-[1.02fr_1fr] lg:gap-10 lg:py-20">
         {/* Copy */}
         <div className="relative z-10 text-center lg:text-left">
-          <span className="label-kicker">
-            <StarIcon className="h-3.5 w-3.5 fill-gold text-gold" /> An Elden Heights School · Ages 2–6
+          <span className="inline-flex items-center gap-2.5 rounded-full border border-gold/30 bg-white/60 px-4 py-2 text-[0.72rem] font-bold uppercase tracking-[0.18em] text-crimson shadow-sm backdrop-blur">
+            <EldenHeightsCrest className="h-5 w-5" withBanner={false} />
+            An Elden Heights Partnership · Ages 2–6
           </span>
 
-          <h1 className="mt-5 text-balance font-display text-4xl font-bold leading-[1.05] sm:text-5xl lg:text-6xl">
-            Where little{" "}
-            <span className="relative inline-block text-crimson">
-              wonders
-              <Squiggle className="absolute -bottom-3 left-0 h-3 w-full text-sunshine" stroke="#FFC93C" />
+          <h1 className="mt-6 font-display text-[2.7rem] font-semibold leading-[1.04] tracking-tight text-balance sm:text-6xl lg:text-[4.1rem]">
+            Where little wonders
+            <br className="hidden sm:block" /> take their{" "}
+            <span className="relative whitespace-nowrap italic text-gold-foil">
+              grandest
+              <Sparkles className="absolute -right-7 -top-3 h-6 w-6 text-gold animate-wiggle" />
             </span>{" "}
-            take their first big steps
+            first steps
           </h1>
 
-          <p className="mx-auto mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink/75 lg:mx-0">
-            {site.shortName} is a joyful, play-rich pre-primary where curious 2–6 year olds learn, giggle and grow —
-            lovingly guided by the values of {site.parent}.
+          <p className="mx-auto mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink/70 lg:mx-0">
+            Drona Valley has joined hands with{" "}
+            <span className="font-semibold text-crimson">{site.parent}</span> — a proud new partnership bringing
+            a world of warm, luxurious early learning to your child's very first classroom.
           </p>
 
-          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row lg:items-start lg:justify-start sm:justify-center">
-            <Link href="/admissions" className="btn-primary text-base">
-              Register Your Child <ArrowRight className="h-4 w-4" />
+          <div className="mt-9 flex flex-col items-center gap-3.5 sm:flex-row lg:justify-start sm:justify-center">
+            <Link href="/admissions" className="btn-gold text-base">
+              Register Your Child <ArrowUpRight className="h-4 w-4" />
             </Link>
-            <Link href="/about" className="btn-outline text-base">
-              <PlayCircle className="h-5 w-5 text-crimson" /> Take a Peek Inside
+            <Link href="/about" className="btn-primary text-base">
+              Discover the Vision
             </Link>
           </div>
 
-          {/* trust row */}
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 lg:justify-start">
-            <div className="flex items-center gap-2 text-sm font-semibold text-ink/70">
-              <ShieldCheck className="h-5 w-5 text-grass" /> Safe, secure campus
-            </div>
-            <div className="flex items-center gap-2 text-sm font-semibold text-ink/70">
-              <div className="flex -space-x-1.5">
-                {["bg-coral", "bg-sky", "bg-sunshine", "bg-grass"].map((c) => (
-                  <span key={c} className={`h-6 w-6 rounded-full ${c} ring-2 ring-cream`} />
+          {/* trust strip */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-7 gap-y-4 lg:justify-start">
+            <div>
+              <div className="flex items-center gap-1">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon key={i} className="h-4 w-4 fill-gold text-gold" />
                 ))}
               </div>
-              2,500+ happy graduates
+              <p className="mt-1 text-sm font-semibold text-ink/60">Adored by parents</p>
             </div>
-            <div className="flex items-center gap-1 text-sm font-semibold text-ink/70">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <StarIcon key={i} className="h-4 w-4 fill-gold text-gold" />
-              ))}
-              <span className="ml-1">Loved by parents</span>
+            <span className="hidden h-10 w-px bg-ink/10 sm:block" />
+            <div className="flex items-center gap-3">
+              <div className="flex -space-x-2.5">
+                {["bg-coral", "bg-sky", "bg-sunshine", "bg-grass", "bg-grape"].map((c) => (
+                  <span key={c} className={`h-8 w-8 rounded-full ${c} ring-2 ring-cream`} />
+                ))}
+              </div>
+              <p className="text-sm font-semibold text-ink/60">
+                <span className="font-display text-base text-ink">2,500+</span> happy graduates
+              </p>
+            </div>
+            <span className="hidden h-10 w-px bg-ink/10 sm:block" />
+            <div>
+              <p className="font-display text-xl font-semibold text-crimson">7+ years</p>
+              <p className="text-sm font-semibold text-ink/60">of joyful learning</p>
             </div>
           </div>
         </div>
 
-        {/* Illustrated scene */}
-        <div className="relative z-10 mx-auto w-full max-w-lg">
-          <div className="relative aspect-square">
-            {/* main scene card */}
-            <div className="absolute inset-0 overflow-hidden rounded-[2.75rem] bg-gradient-to-b from-sky-light via-[#cdeafe] to-grass-light shadow-playful ring-8 ring-white">
-              <Sun className="absolute right-5 top-5 h-28 w-28 animate-spin-slow" />
-              <Cloud className="absolute left-4 top-10 h-14 w-24 animate-float" />
-              <Cloud className="absolute right-24 top-28 h-10 w-16 animate-float-slow" />
-              <Rainbow className="absolute left-1/2 top-16 h-28 w-56 -translate-x-1/2 opacity-90" />
+        {/* Image-led visual */}
+        <div className="relative z-10 mx-auto w-full max-w-xl">
+          <div className="relative">
+            {/* gold halo ring behind */}
+            <div className="absolute -inset-4 -z-10 rounded-[3rem] bg-gold-sheen opacity-20 blur-xl" aria-hidden />
 
-              {/* hills */}
-              <svg viewBox="0 0 400 200" className="absolute bottom-0 left-0 w-full" preserveAspectRatio="none" aria-hidden>
-                <path d="M0 120 Q 100 70 200 110 T 400 100 V200 H0 Z" fill="#7ed598" />
-                <path d="M0 150 Q 120 100 240 145 T 400 140 V200 H0 Z" fill="#5BC57A" />
-                <path d="M0 175 Q 160 150 320 175 T 400 172 V200 H0 Z" fill="#3AA95C" />
-              </svg>
-
-              {/* playful characters */}
-              <div className="absolute bottom-10 left-1/2 flex -translate-x-1/2 items-end gap-1 text-6xl">
-                <span className="animate-bounce-soft [animation-delay:0ms]">🧒</span>
-                <span className="animate-bounce-soft text-7xl [animation-delay:200ms]">👧</span>
-                <span className="animate-bounce-soft [animation-delay:400ms]">🧑‍🦱</span>
-              </div>
-
-              <PaperPlane className="absolute left-6 top-1/2 h-10 w-10 animate-float" />
-              <Star className="absolute left-10 top-6 h-6 w-6 animate-wiggle" />
-              <Star className="absolute right-10 bottom-24 h-5 w-5 animate-bounce-soft" fill="#FF6B6B" />
+            {/* main organic image */}
+            <div className="relative animate-blob-morph overflow-hidden border-4 border-white shadow-lux-lg" style={{ borderRadius: "42% 58% 58% 42% / 48% 42% 58% 52%" }}>
+              <SmartImage
+                src="/images/hero-main.jpg"
+                alt="A joyful child discovering and playing at Drona Valley Public School"
+                emoji="🎨"
+                tone="gold"
+                priority
+                className="aspect-[4/5] w-full"
+              />
+              <div className="pointer-events-none absolute inset-0" style={{ boxShadow: "inset 0 -60px 80px -40px rgba(78,14,14,0.45)" }} />
             </div>
 
-            {/* floating balloons */}
-            <Balloon className="absolute -right-4 top-6 h-24 w-16 animate-float drop-shadow-lg" fill="#FF6B6B" />
-            <Balloon className="absolute -left-6 bottom-16 h-20 w-14 animate-float-slow drop-shadow-lg" fill="#9B6DD6" />
+            {/* secondary peeking image */}
+            <div className="absolute -bottom-8 -left-6 hidden w-40 rotate-[-6deg] overflow-hidden rounded-[1.6rem] border-4 border-white shadow-lux sm:block">
+              <SmartImage src="/images/hero-secondary.jpg" alt="Outdoor garden play" emoji="🌳" tone="grass" className="aspect-square w-full" />
+            </div>
 
-            {/* floating info chips */}
-            <div className="absolute -left-4 top-10 rotate-[-6deg] rounded-2xl bg-white px-4 py-3 shadow-card">
-              <p className="font-display text-sm font-bold text-grass-dark">Play-based ✨</p>
-              <p className="text-[11px] text-ink/60">Learning through joy</p>
+            {/* crest badge */}
+            <div className="absolute -right-3 top-5 flex items-center gap-2 rounded-2xl bg-white/90 px-3 py-2 shadow-lux backdrop-blur">
+              <EldenHeightsCrest className="h-9 w-9" withBanner={false} />
+              <span className="text-[0.62rem] font-bold uppercase leading-tight tracking-wider text-ink/70">
+                Part of the<br />Elden Heights family
+              </span>
             </div>
-            <div className="absolute -right-3 bottom-8 rotate-[5deg] rounded-2xl bg-white px-4 py-3 shadow-card">
-              <p className="font-display text-sm font-bold text-crimson">Tiny classes 💛</p>
-              <p className="text-[11px] text-ink/60">Every child seen</p>
+
+            {/* floating glass stat */}
+            <div className="absolute -right-4 bottom-10 rotate-[5deg] rounded-2xl glass px-4 py-3 shadow-lux">
+              <p className="font-display text-lg font-semibold text-crimson">1 : 8</p>
+              <p className="text-[0.68rem] font-semibold text-ink/60">tiny, loving classes</p>
             </div>
+
+            {/* playful accents */}
+            <Balloon className="absolute -left-8 top-8 h-20 w-14 animate-float-slow drop-shadow-lg" fill="#FF6B6B" />
+            <Star className="absolute -top-4 left-1/3 h-7 w-7 animate-bounce-soft" fill="#C79A3A" />
+            <Sparkles className="absolute bottom-2 left-10 h-6 w-6 text-gold animate-wiggle" />
           </div>
         </div>
       </div>
+
+      {/* gold rule + values marquee */}
+      <div className="gold-rule mt-2" />
     </section>
   );
 }

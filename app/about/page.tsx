@@ -7,14 +7,15 @@ import { Pillars } from "@/components/sections/Pillars";
 import { WhatsNext } from "@/components/sections/WhatsNext";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { EldenHeightsCrest } from "@/components/brand/EldenHeightsLogo";
-import { Sun, Cloud, Rainbow, WaveDivider } from "@/components/illustrations";
+import { WaveDivider } from "@/components/illustrations";
+import { SmartImage } from "@/components/ui/SmartImage";
 import { site, fullAddress } from "@/lib/site";
 import { stats } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Drona Valley Public School is the joyful early-years wing of The Elden Heights School, powered by Duniz Eduserv. Discover our story, our values and what makes us special.",
+    "Drona Valley Public School has joined hands with The Elden Heights School, powered by Duniz Eduserv. Discover our story, our values and what makes us special.",
   alternates: { canonical: "/about" },
 };
 
@@ -34,7 +35,7 @@ export default function AboutPage() {
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <Reveal>
             <span className="label-kicker mb-4">Where it all began</span>
-            <h2 className="text-balance text-3xl font-bold leading-tight sm:text-4xl">
+            <h2 className="font-display text-balance text-3xl font-semibold leading-tight sm:text-4xl">
               A garden where childhood is free to bloom
             </h2>
             <div className="mt-5 space-y-4 text-pretty text-ink/75">
@@ -44,11 +45,11 @@ export default function AboutPage() {
                 play their way into the world.
               </p>
               <p>
-                As the dedicated early-years wing of{" "}
-                <span className="font-semibold text-crimson">{site.parent}</span>, we carry forward a proud
-                tradition of excellence — reimagined for tiny humans. Powered by{" "}
-                <span className="font-semibold">{site.poweredBy}</span>, we blend heartfelt teaching with
-                thoughtful, modern early-childhood practice.
+                Now, through our proud new partnership with{" "}
+                <span className="font-semibold text-crimson">{site.parent}</span>, we carry that belief into a
+                bright new era — pairing heartfelt early teaching with one of the region's most respected names
+                in education. Powered by{" "}
+                <span className="font-semibold">{site.poweredBy}</span>, every detail is crafted with care.
               </p>
               <p>
                 Today, thousands of confident, kind and curious graduates have walked our sunlit corridors —
@@ -58,18 +59,19 @@ export default function AboutPage() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="relative mx-auto aspect-[4/3] w-full max-w-md overflow-hidden rounded-5xl bg-gradient-to-b from-sky-light to-grass-light shadow-playful ring-8 ring-white">
-              <Sun className="absolute right-4 top-4 h-24 w-24 animate-spin-slow" />
-              <Cloud className="absolute left-5 top-8 h-12 w-20 animate-float" />
-              <Rainbow className="absolute left-1/2 top-12 h-24 w-48 -translate-x-1/2" />
-              <svg viewBox="0 0 400 200" className="absolute bottom-0 w-full" preserveAspectRatio="none" aria-hidden>
-                <path d="M0 130 Q 100 90 200 120 T 400 110 V200 H0 Z" fill="#7ed598" />
-                <path d="M0 160 Q 120 120 240 155 T 400 150 V200 H0 Z" fill="#5BC57A" />
-              </svg>
-              <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-1 text-5xl">
-                <span className="animate-bounce-soft">🌻</span>
-                <span className="animate-bounce-soft text-6xl [animation-delay:200ms]">🧒</span>
-                <span className="animate-bounce-soft [animation-delay:400ms]">🎨</span>
+            <div className="relative mx-auto w-full max-w-md">
+              <div className="overflow-hidden rounded-[2rem] border-4 border-white shadow-lux-lg organic-2">
+                <SmartImage
+                  src="/images/about-story.jpg"
+                  alt="Children and teachers sharing a joyful moment at Drona Valley"
+                  emoji="🌻"
+                  tone="sunshine"
+                  className="aspect-[4/5] w-full"
+                />
+              </div>
+              <div className="absolute -bottom-5 -right-4 rotate-3 rounded-2xl bg-white px-5 py-3 shadow-lux">
+                <p className="font-display text-2xl font-semibold text-gold-foil">Since {site.establishedYear}</p>
+                <p className="text-[0.7rem] font-semibold uppercase tracking-wider text-ink/55">7+ joyful years</p>
               </div>
             </div>
           </Reveal>

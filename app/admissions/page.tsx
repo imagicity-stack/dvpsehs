@@ -4,6 +4,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { RegistrationForm } from "@/components/forms/RegistrationForm";
+import { SmartImage } from "@/components/ui/SmartImage";
 import { site, fullAddress } from "@/lib/site";
 import { programs } from "@/lib/content";
 
@@ -82,8 +83,23 @@ export default function AdmissionsPage() {
 
           <Reveal className="order-1 lg:order-2" delay={0.1}>
             <div className="space-y-5 lg:sticky lg:top-24">
+              {/* Welcoming image */}
+              <div className="relative overflow-hidden rounded-[1.8rem] border-4 border-white shadow-lux">
+                <SmartImage
+                  src="/images/admissions-welcome.jpg"
+                  alt="A happy child being welcomed at Drona Valley"
+                  emoji="🎒"
+                  tone="gold"
+                  className="aspect-[16/10] w-full"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/55 to-transparent" />
+                <p className="absolute bottom-3 left-4 font-display text-lg font-semibold text-ivory drop-shadow">
+                  Your child's happiest start
+                </p>
+              </div>
+
               {/* Programmes quick list */}
-              <div className="rounded-4xl bg-grape-light/40 p-6">
+              <div className="rounded-[1.6rem] bg-grape-light/40 p-6">
                 <h3 className="font-display text-lg font-bold">Programmes you can register for</h3>
                 <ul className="mt-4 space-y-2.5">
                   {programs.map((p) => (

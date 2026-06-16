@@ -1,11 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Fredoka, Nunito, Playfair_Display } from "next/font/google";
+import { Fraunces, Fredoka, Nunito } from "next/font/google";
 import "./globals.css";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { site } from "@/lib/site";
 
+// Elegant high-contrast serif for headlines — the "luxury" voice.
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "900"],
+  style: ["normal", "italic"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
+
+// Rounded, friendly font for playful accents & UI.
 const fredoka = Fredoka({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -17,13 +27,6 @@ const nunito = Nunito({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-nunito",
-  display: "swap",
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-playfair",
   display: "swap",
 });
 
@@ -77,7 +80,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${fredoka.variable} ${nunito.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${fredoka.variable} ${nunito.variable}`}>
       <body>
         <a
           href="#main"

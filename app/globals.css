@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
+  --font-fraunces: "Fraunces", Georgia, serif;
   --font-fredoka: "Fredoka", system-ui, sans-serif;
   --font-nunito: "Nunito", system-ui, sans-serif;
-  --font-playfair: "Playfair Display", Georgia, serif;
 }
 
 @layer base {
@@ -16,19 +16,26 @@
   body {
     @apply bg-cream text-ink font-body antialiased;
     background-image:
-      radial-gradient(circle at 12% 18%, rgba(61, 169, 224, 0.06), transparent 30%),
-      radial-gradient(circle at 88% 8%, rgba(255, 201, 60, 0.08), transparent 28%),
-      radial-gradient(circle at 78% 82%, rgba(91, 197, 122, 0.07), transparent 30%);
+      radial-gradient(60% 50% at 8% 0%, rgba(199, 154, 58, 0.10), transparent 60%),
+      radial-gradient(55% 45% at 100% 8%, rgba(61, 169, 224, 0.08), transparent 55%),
+      radial-gradient(50% 45% at 50% 100%, rgba(255, 143, 177, 0.07), transparent 60%);
+    background-attachment: fixed;
   }
 
-  h1, h2, h3, h4, h5 {
-    @apply font-display font-semibold text-ink;
-    letter-spacing: -0.01em;
+  h1, h2, h3, h4 {
+    @apply font-display text-ink;
+    font-optical-sizing: auto;
+    letter-spacing: -0.015em;
   }
 
   ::selection {
-    background-color: #FFC93C;
-    color: #2D2433;
+    background-color: #C79A3A;
+    color: #fffdf8;
+  }
+
+  /* nicer focus ring everywhere */
+  :focus-visible {
+    outline: none;
   }
 }
 
@@ -36,66 +43,107 @@
   .container-page {
     @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
   }
-
   .container-wide {
     @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
   }
 
-  /* Playful pill button */
+  /* ---------- Buttons ---------- */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-display font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-fun text-[0.95rem] font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2 focus-visible:ring-offset-cream;
   }
-
+  /* Primary — deep crimson with a gold hairline (the luxury CTA) */
   .btn-primary {
-    @apply btn bg-crimson text-white shadow-playful hover:-translate-y-0.5 hover:bg-crimson-dark focus-visible:ring-crimson/30;
+    @apply btn relative overflow-hidden bg-crimson-rich text-ivory shadow-lux ring-1 ring-gold/30 hover:-translate-y-0.5 hover:shadow-lux-lg focus-visible:ring-crimson/30;
   }
-
-  .btn-sunshine {
-    @apply btn bg-sunshine text-ink shadow-[0_8px_0_0_#F4A500] hover:-translate-y-0.5 active:translate-y-0 active:shadow-[0_3px_0_0_#F4A500] focus-visible:ring-sunshine/40;
+  /* Gold — champagne gradient, ink text (premium attention-grabber) */
+  .btn-gold {
+    @apply btn bg-gold-sheen bg-[length:200%_auto] text-ink shadow-gold hover:-translate-y-0.5 hover:animate-shimmer focus-visible:ring-gold/40;
   }
-
   .btn-sky {
-    @apply btn bg-sky text-white shadow-[0_8px_0_0_#1E83BC] hover:-translate-y-0.5 active:translate-y-0 active:shadow-[0_3px_0_0_#1E83BC] focus-visible:ring-sky/40;
+    @apply btn bg-sky text-white shadow-[0_10px_0_0_#1E83BC] hover:-translate-y-0.5 active:translate-y-0 active:shadow-[0_4px_0_0_#1E83BC] focus-visible:ring-sky/40;
+  }
+  .btn-cream {
+    @apply btn bg-ivory/90 text-crimson ring-1 ring-crimson/15 backdrop-blur hover:-translate-y-0.5 hover:bg-ivory focus-visible:ring-crimson/20;
+  }
+  .btn-outline {
+    @apply btn border border-ink/15 bg-white/50 text-ink backdrop-blur hover:border-gold hover:text-crimson focus-visible:ring-gold/30;
   }
 
-  .btn-outline {
-    @apply btn border-2 border-ink/15 bg-white/70 text-ink hover:border-crimson/40 hover:text-crimson focus-visible:ring-crimson/20;
+  /* ---------- Eyebrows / kickers ---------- */
+  .label-kicker {
+    @apply inline-flex items-center gap-2.5 text-[0.72rem] font-bold uppercase tracking-[0.22em] text-crimson;
+  }
+  .label-kicker::before {
+    content: "";
+    @apply h-px w-7 bg-gold-sheen;
+  }
+  .eyebrow {
+    @apply font-display text-lg font-medium italic text-gold-dark;
   }
 
   .badge {
-    @apply inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm font-semibold;
+    @apply inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 font-fun text-sm font-semibold;
   }
 
+  /* ---------- Cards (softer, de-boxed) ---------- */
   .card {
-    @apply rounded-4xl border border-ink/5 bg-white p-6 shadow-card transition-transform duration-300;
+    @apply rounded-[1.75rem] border border-ink/5 bg-white/90 p-7 shadow-card backdrop-blur-sm transition-all duration-500;
+  }
+  .card-lux {
+    @apply rounded-[1.75rem] border border-gold/15 bg-ivory/95 p-7 shadow-lux ring-1 ring-inset ring-white/60 transition-all duration-500;
+  }
+
+  /* glassy surface */
+  .glass {
+    @apply border border-white/40 bg-white/60 backdrop-blur-xl;
+  }
+  .glass-dark {
+    @apply border border-white/10 bg-ink/30 backdrop-blur-xl;
+  }
+
+  /* gold hairline divider */
+  .gold-rule {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-gold/60 to-transparent;
   }
 
   .link-underline {
-    @apply relative font-semibold text-crimson after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-crimson after:transition-all hover:after:w-full;
+    @apply relative font-semibold text-crimson after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-gold after:transition-all after:duration-300 hover:after:w-full;
   }
 
-  /* Decorative dotted/checkered backgrounds */
   .dot-grid {
-    background-image: radial-gradient(rgba(45, 36, 51, 0.08) 1.5px, transparent 1.5px);
+    background-image: radial-gradient(rgba(36, 27, 46, 0.08) 1.5px, transparent 1.5px);
     background-size: 22px 22px;
-  }
-
-  .label-kicker {
-    @apply inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-sm font-bold uppercase tracking-wide text-crimson shadow-sm ring-1 ring-crimson/10;
   }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  /* gold foil text */
+  .text-gold-foil {
+    background: linear-gradient(100deg, #A67C24, #E7CD86 40%, #F2E7C9 50%, #E7CD86 60%, #A67C24);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
   }
-  .text-pretty {
-    text-wrap: pretty;
-  }
-  /* Wavy section dividers use this for a hand-drawn feel */
-  .mask-wave-top {
-    -webkit-mask-image: linear-gradient(to bottom, transparent, black 16px);
-    mask-image: linear-gradient(to bottom, transparent, black 16px);
+  .text-shadow-soft { text-shadow: 0 2px 18px rgba(36, 27, 46, 0.22); }
+
+  /* organic blob radii */
+  .organic { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; }
+  .organic-2 { border-radius: 63% 37% 38% 62% / 58% 41% 59% 42%; }
+
+  /* film grain overlay (very subtle) */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
   }
 }
 

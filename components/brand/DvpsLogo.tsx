@@ -68,14 +68,14 @@ export function DvpsLogo({
 }) {
   return (
     <Link href="/" className={`group flex items-center gap-3 ${className}`} aria-label={`${site.name} — home`}>
-      <DvpsMark className="h-12 w-12 shrink-0 drop-shadow-sm transition-transform duration-500 group-hover:rotate-[8deg] group-hover:scale-105 sm:h-[52px] sm:w-[52px]" />
-      <span className="flex flex-col leading-none">
-        <span className={`font-display text-[1.35rem] font-semibold tracking-tight sm:text-[1.5rem] ${invert ? "text-ivory" : "text-ink"}`}>
+      <DvpsMark className="h-11 w-11 shrink-0 drop-shadow-sm transition-transform duration-500 group-hover:rotate-[8deg] group-hover:scale-105 sm:h-[50px] sm:w-[50px]" />
+      <span className="flex flex-col justify-center leading-none">
+        <span className={`font-display text-[1.3rem] font-semibold leading-none tracking-tight sm:text-[1.45rem] ${invert ? "text-ivory" : "text-ink"}`}>
           Drona <span className={invert ? "text-gold-light" : "text-crimson"}>Valley</span>
         </span>
         {subline && (
-          <span className={`mt-1 text-[0.6rem] font-bold uppercase tracking-[0.2em] ${invert ? "text-ivory/65" : "text-ink/50"}`}>
-            Pre-Primary · An Elden Heights Partnership
+          <span className={`mt-[5px] text-[0.58rem] font-bold uppercase leading-none tracking-[0.22em] ${invert ? "text-ivory/65" : "text-ink/50"}`}>
+            Pre-Primary School · Ages 2–6
           </span>
         )}
       </span>

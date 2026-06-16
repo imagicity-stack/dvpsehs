@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Target, Eye, HeartHandshake, Sprout } from "lucide-react";
+import { Target, Eye, HeartHandshake, Sprout, ArrowUpRight, ChevronRight } from "lucide-react";
 import { PageHero } from "@/components/sections/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
@@ -18,6 +18,14 @@ export const metadata: Metadata = {
     "Drona Valley Public School has joined hands with The Elden Heights School, powered by Duniz Eduserv. Discover our story, our values and what makes us special.",
   alternates: { canonical: "/about" },
 };
+
+const journey = [
+  { emoji: "🎨", stage: "Pre-Primary", grades: "Drona Valley · Ages 2–6", here: true, dest: false },
+  { emoji: "✏️", stage: "Primary", grades: "Grades 1 – 5", here: false, dest: false },
+  { emoji: "🔭", stage: "Middle School", grades: "Grades 6 – 8", here: false, dest: false },
+  { emoji: "📚", stage: "Senior School", grades: "Grades 9 – 12", here: false, dest: false },
+  { emoji: "🎓", stage: "Class 12 Graduate", grades: "Towards Eternal Glory", here: false, dest: true },
+];
 
 export default function AboutPage() {
   return (
@@ -148,8 +156,8 @@ export default function AboutPage() {
       </div>
 
       {/* The Elden Heights connection */}
-      <section className="container-wide py-16">
-        <div className="grid items-center gap-10 rounded-5xl bg-white p-8 shadow-card sm:p-12 lg:grid-cols-[1fr_1.4fr]">
+      <section id="elden-heights" className="container-wide scroll-mt-28 py-16">
+        <div className="grid items-center gap-10 rounded-[2.5rem] border border-gold/15 bg-ivory/80 p-8 shadow-lux sm:p-12 lg:grid-cols-[1fr_1.4fr]">
           <Reveal>
             <div className="mx-auto max-w-xs">
               <EldenHeightsCrest className="mx-auto h-64 w-auto" />
@@ -159,26 +167,84 @@ export default function AboutPage() {
             <span className="label-kicker mb-4">
               <Sprout className="h-3.5 w-3.5" /> Part of something bigger
             </span>
-            <h2 className="text-balance text-3xl font-bold leading-tight sm:text-4xl">
-              Rooted in The Elden Heights School
+            <h2 className="font-display text-balance text-3xl font-semibold leading-tight sm:text-4xl">
+              In partnership with The Elden Heights School
             </h2>
             <p className="mt-4 text-pretty text-ink/75">
-              Drona Valley isn't a stand-alone playschool — it's the loving first chapter of a much longer
-              story. {site.parent} is known for its commitment to character, curiosity and care, summed up in a
-              motto we hold dear: <span className="font-semibold italic text-crimson">"{site.parentMotto}."</span>
+              We've joined hands with{" "}
+              <a href={site.parentUrl} target="_blank" rel="noreferrer" className="link-underline">
+                {site.parent}
+              </a>{" "}
+              — one of the region's most respected names in education. For decades, Elden Heights has been known
+              for academic excellence, strength of character and a deep culture of care, all carried in a motto
+              the whole community holds dear:{" "}
+              <span className="font-semibold italic text-crimson">"{site.parentMotto}."</span>
             </p>
             <p className="mt-3 text-pretty text-ink/75">
-              For our families, that means real continuity. The values your child meets in our Toddler Nest are
-              the very same ones that will carry them through every grade that follows — a seamless, supported
-              journey from first steps to first prizes.
+              For our families, this partnership means something wonderful: real continuity. The warmth and
+              values your child meets in our Toddler Nest are the very same ones that will guide them through
+              every grade that follows — all the way to a proud Class 12 graduation.
             </p>
-            <div className="mt-6 rounded-3xl bg-gold-light/25 p-5 ring-1 ring-gold/30">
-              <p className="text-sm font-semibold text-ink/80">
-                ✨ And there's an exciting new chapter on the way — scroll on to discover what's next for our
-                little family.
-              </p>
-            </div>
+            <a
+              href={site.parentUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-6 inline-flex items-center gap-1.5 font-fun text-sm font-semibold text-crimson transition hover:text-gold-dark"
+            >
+              Explore The Elden Heights School
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
           </Reveal>
+        </div>
+      </section>
+
+      {/* Seamless K-12 pathway */}
+      <section className="relative overflow-hidden bg-sand/60 py-20">
+        <div className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-gold/10 blur-3xl" aria-hidden />
+        <div className="container-wide relative">
+          <SectionHeading
+            kicker="One admission · all the way to Class 12"
+            title={<>From first steps to a <span className="italic text-gold-foil">Class 12 graduate</span></>}
+            subtitle="When your little one joins Drona Valley, they step onto a seamless pathway with The Elden Heights School — no nerve-wracking school hunts at age six, no re-admission scramble. Just one warm family, all the way through."
+          />
+
+          <div className="mt-14 flex flex-col items-stretch gap-3 lg:flex-row">
+            {journey.map((s, i) => (
+              <Reveal key={s.stage} delay={i * 0.07} className="flex flex-1 flex-col lg:flex-row lg:items-center">
+                <div
+                  className={`relative flex-1 rounded-[1.6rem] border p-5 text-center shadow-card transition ${
+                    s.dest
+                      ? "border-gold/40 bg-crimson-rich text-ivory"
+                      : s.here
+                        ? "border-gold/50 bg-ivory ring-2 ring-gold/40"
+                        : "border-ink/5 bg-white/90"
+                  }`}
+                >
+                  {s.here && (
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gold-sheen px-3 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-ink shadow">
+                      Start here
+                    </span>
+                  )}
+                  <div className={`mx-auto grid h-14 w-14 place-items-center rounded-2xl text-2xl ${s.dest ? "bg-white/15" : "bg-cream"}`}>
+                    {s.emoji}
+                  </div>
+                  <h3 className={`mt-3 font-display text-lg font-semibold ${s.dest ? "text-ivory" : "text-ink"}`}>{s.stage}</h3>
+                  <p className={`text-sm ${s.dest ? "text-gold-light" : "text-ink/60"}`}>{s.grades}</p>
+                </div>
+                {i < journey.length - 1 && (
+                  <div className="flex items-center justify-center py-1 lg:px-1 lg:py-0">
+                    <ChevronRight className="h-6 w-6 rotate-90 text-gold lg:rotate-0" />
+                  </div>
+                )}
+              </Reveal>
+            ))}
+          </div>
+
+          <p className="mx-auto mt-10 max-w-2xl text-center text-pretty text-ink/70">
+            <span className="font-semibold text-crimson">One school. One family. Thirteen joyful years.</span>{" "}
+            Your child can walk in at age two and walk out a Class 12 graduate of The Elden Heights School —
+            confident, cherished and ready for the world.
+          </p>
         </div>
       </section>
 

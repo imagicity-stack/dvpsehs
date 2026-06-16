@@ -13,6 +13,7 @@ export const site = {
   // The strategic "parent company" thread woven throughout the site.
   parent: "The Elden Heights School",
   parentShort: "Elden Heights",
+  parentUrl: "https://www.eldenheights.org",
   parentMotto: "Towards Eternal Glory",
   poweredBy: "Duniz Eduserv",
   // Framed as a brand-new, proud partnership — the groundwork for the
@@ -61,7 +62,7 @@ export const primaryNav: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Programmes", href: "/programs" },
-  { label: "Life @ Drona Valley", href: "/gallery" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Admissions", href: "/admissions" },
   { label: "Contact", href: "/contact" },
 ];

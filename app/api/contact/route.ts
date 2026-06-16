@@ -70,6 +70,6 @@ export async function POST(req: Request) {
 
   return NextResponse.json({
     ok: true,
-    message: "Thanks for reaching out! We've received your message and will reply soon. 💛",
+    message: "Thanks for reaching out! We've received your message and will reply soon.",
   });
 }

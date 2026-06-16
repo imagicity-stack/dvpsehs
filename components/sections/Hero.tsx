@@ -86,7 +86,6 @@ export function Hero() {
               <SmartImage
                 src="/images/hero-main.jpg"
                 alt="A joyful child discovering and playing at Drona Valley Public School"
-                emoji="🎨"
                 tone="gold"
                 priority
                 className="aspect-[4/5] w-full"
@@ -96,7 +95,7 @@ export function Hero() {
 
             {/* secondary peeking image */}
             <div className="absolute -bottom-8 -left-6 hidden w-40 rotate-[-6deg] overflow-hidden rounded-[1.6rem] border-4 border-white shadow-lux sm:block">
-              <SmartImage src="/images/hero-secondary.jpg" alt="Outdoor garden play" emoji="🌳" tone="grass" className="aspect-square w-full" />
+              <SmartImage src="/images/hero-secondary.jpg" alt="Outdoor garden play" tone="grass" className="aspect-square w-full" />
             </div>
 
             {/* crest badge */}

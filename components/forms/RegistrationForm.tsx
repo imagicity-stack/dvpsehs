@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, Loader2, PartyPopper } from "lucide-react";
+import { CheckCircle2, Loader2, PartyPopper, Pencil } from "lucide-react";
 import { FieldShell, TextInput, Select, Textarea, Honeypot } from "./Fields";
 import { programOptions, validateRegistration, type RegistrationData } from "@/lib/forms";
 import { site } from "@/lib/site";
@@ -65,7 +65,7 @@ export function RegistrationForm() {
         <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-grass text-white">
           <PartyPopper className="h-8 w-8" />
         </div>
-        <h3 className="mt-5 font-display text-2xl font-bold">You're on the list! 🎉</h3>
+        <h3 className="mt-5 font-display text-2xl font-bold">You're on the list!</h3>
         <p className="mx-auto mt-3 max-w-md text-ink/70">{serverMsg}</p>
         <p className="mt-4 text-sm text-ink/55">
           In a hurry? Call our admissions desk on{" "}
@@ -82,8 +82,9 @@ export function RegistrationForm() {
     <form onSubmit={onSubmit} noValidate className="relative space-y-5">
       <Honeypot value={data.company || ""} onChange={(v) => set("company", v)} />
 
-      <div className="rounded-2xl bg-sky-light/40 px-4 py-3 text-sm font-semibold text-sky-dark">
-        ✏️ Step 1 of 1 — it only takes a minute. We'll call you back to arrange a visit.
+      <div className="flex items-center gap-2 rounded-2xl bg-sky-light/40 px-4 py-3 text-sm font-semibold text-sky-dark">
+        <Pencil className="h-4 w-4 shrink-0" />
+        Step 1 of 1 — it only takes a minute. We'll call you back to arrange a visit.
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">

@@ -7,6 +7,7 @@ import { ProgramCard } from "@/components/sections/ProgramCard";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { WaveDivider } from "@/components/illustrations";
 import { SmartImage } from "@/components/ui/SmartImage";
+import { Glyph } from "@/components/ui/Glyph";
 import { programs, aDayInLife } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -55,7 +56,6 @@ export default function ProgramsPage() {
           <SmartImage
             src="/images/programs-banner.jpg"
             alt="Children deep in joyful, hands-on learning"
-            emoji="🧒"
             tone="grape"
             className="h-72 w-full sm:h-80"
           />
@@ -112,7 +112,9 @@ export default function ProgramsPage() {
           {aDayInLife.map((d, i) => (
             <Reveal key={d.time} delay={(i % 2) * 0.05}>
               <div className="flex items-center gap-4 rounded-3xl bg-white p-4 shadow-card">
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-cream text-2xl">{d.emoji}</span>
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-cream text-crimson">
+                  <Glyph name={d.icon} className="h-6 w-6" strokeWidth={1.8} />
+                </span>
                 <div>
                   <p className="font-display text-sm font-bold text-crimson">{d.time} AM · {d.title}</p>
                   <p className="text-sm text-ink/65">{d.note}</p>

@@ -9,7 +9,7 @@ Built with **Next.js (App Router) + TypeScript + Tailwind CSS**, designed for
 
 ---
 
-## ✨ What's inside
+## What's inside
 
 - **9 marketing pages** — Home, About, Our Classes (Play / Nursery / LKG / UKG),
   Gallery, Admissions, Contact, plus a Policies hub.
@@ -24,7 +24,7 @@ Built with **Next.js (App Router) + TypeScript + Tailwind CSS**, designed for
 
 ---
 
-## 🚀 Local development
+## Local development
 
 ```bash
 npm install
@@ -37,7 +37,7 @@ Node 18.18+ (Node 20/22 recommended).
 
 ---
 
-## 📧 The two forms & SMTP (important)
+## The two forms & SMTP (important)
 
 The site deliberately uses **two separate SMTP configurations** so registration
 enquiries and general messages can go to different inboxes / providers. Set
@@ -59,7 +59,7 @@ gracefully with a friendly message (and log the reason server-side).
 
 ---
 
-## 🖼️ Adding images
+## Adding images
 
 Every photo area shows a designed placeholder until you drop in a real file.
 **See [`IMAGES.md`](./IMAGES.md)** for the complete list of filenames, sizes
@@ -67,7 +67,7 @@ and art-direction/AI prompts. Just add the files to `public/images/` and push.
 
 ---
 
-## ✏️ Editing content (no deep coding needed)
+## Editing content (no deep coding needed)
 
 | File | What it controls |
 |---|---|
@@ -77,7 +77,7 @@ and art-direction/AI prompts. Just add the files to `public/images/` and push.
 
 ---
 
-## ☁️ Deploy to Vercel
+## Deploy to Vercel
 
 1. Import the repo in Vercel (framework auto-detected as Next.js).
 2. Add all environment variables from `.env.example`.
@@ -86,7 +86,7 @@ and art-direction/AI prompts. Just add the files to `public/images/` and push.
 
 ---
 
-## 🎨 Design notes
+## Design notes
 
 - **Type:** Fraunces (elegant serif headlines) + Fredoka (playful accents) +
   Nunito (body) — the high/low pairing that gives the "playful luxury" feel.

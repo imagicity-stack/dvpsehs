@@ -9,6 +9,7 @@ import { CtaBand } from "@/components/sections/CtaBand";
 import { EldenHeightsCrest } from "@/components/brand/EldenHeightsLogo";
 import { WaveDivider } from "@/components/illustrations";
 import { SmartImage } from "@/components/ui/SmartImage";
+import { Glyph, type GlyphName } from "@/components/ui/Glyph";
 import { site, fullAddress } from "@/lib/site";
 import { stats } from "@/lib/content";
 
@@ -19,12 +20,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
 };
 
-const journey = [
-  { emoji: "🎨", stage: "Pre-Primary", grades: "Drona Valley · Ages 2–6", here: true, dest: false },
-  { emoji: "✏️", stage: "Primary", grades: "Grades 1 – 5", here: false, dest: false },
-  { emoji: "🔭", stage: "Middle School", grades: "Grades 6 – 8", here: false, dest: false },
-  { emoji: "📚", stage: "Senior School", grades: "Grades 9 – 12", here: false, dest: false },
-  { emoji: "🎓", stage: "Class 12 Graduate", grades: "Towards Eternal Glory", here: false, dest: true },
+const journey: { icon: GlyphName; stage: string; grades: string; here: boolean; dest: boolean }[] = [
+  { icon: "preprimary", stage: "Pre-Primary", grades: "Drona Valley · Ages 2–6", here: true, dest: false },
+  { icon: "primary", stage: "Primary", grades: "Grades 1 – 5", here: false, dest: false },
+  { icon: "middle", stage: "Middle School", grades: "Grades 6 – 8", here: false, dest: false },
+  { icon: "senior", stage: "Senior School", grades: "Grades 9 – 12", here: false, dest: false },
+  { icon: "graduate", stage: "Class 12 Graduate", grades: "Towards Eternal Glory", here: false, dest: true },
 ];
 
 export default function AboutPage() {
@@ -72,7 +73,6 @@ export default function AboutPage() {
                 <SmartImage
                   src="/images/about-story.jpg"
                   alt="Children and teachers sharing a joyful moment at Drona Valley"
-                  emoji="🌻"
                   tone="sunshine"
                   className="aspect-[4/5] w-full"
                 />
@@ -225,8 +225,8 @@ export default function AboutPage() {
                       Start here
                     </span>
                   )}
-                  <div className={`mx-auto grid h-14 w-14 place-items-center rounded-2xl text-2xl ${s.dest ? "bg-white/15" : "bg-cream"}`}>
-                    {s.emoji}
+                  <div className={`mx-auto grid h-14 w-14 place-items-center rounded-2xl ${s.dest ? "bg-white/15 text-gold-light" : "bg-cream text-crimson"}`}>
+                    <Glyph name={s.icon} className="h-7 w-7" strokeWidth={1.8} />
                   </div>
                   <h3 className={`mt-3 font-display text-lg font-semibold ${s.dest ? "text-ivory" : "text-ink"}`}>{s.stage}</h3>
                   <p className={`text-sm ${s.dest ? "text-gold-light" : "text-ink/60"}`}>{s.grades}</p>

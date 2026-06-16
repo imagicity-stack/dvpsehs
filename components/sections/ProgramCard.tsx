@@ -22,7 +22,6 @@ export function ProgramCard({ program }: { program: Program }) {
         <SmartImage
           src={program.img}
           alt={`${program.name} at Drona Valley`}
-          emoji={program.emoji}
           tone={program.tone}
           className="aspect-[16/10] w-full"
         />

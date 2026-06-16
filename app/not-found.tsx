@@ -13,7 +13,7 @@ export default function NotFound() {
 
         <p className="font-display text-[6rem] font-bold leading-none text-crimson sm:text-[9rem]">404</p>
         <h1 className="mt-2 text-balance font-display text-3xl font-bold sm:text-4xl">
-          Oops! This page wandered off to play 🙈
+          Oops! This page wandered off to play
         </h1>
         <p className="mx-auto mt-4 max-w-md text-pretty text-ink/70">
           We looked in the sandpit and behind the story corner, but we couldn't find the page you wanted. Let's

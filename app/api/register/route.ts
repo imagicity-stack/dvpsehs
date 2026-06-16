@@ -75,6 +75,6 @@ export async function POST(req: Request) {
 
   return NextResponse.json({
     ok: true,
-    message: "Thank you! Our admissions team has your details and will be in touch very soon. 🎈",
+    message: "Thank you! Our admissions team has your details and will be in touch very soon.",
   });
 }

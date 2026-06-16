@@ -19,7 +19,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        kicker="Say hello 👋"
+        kicker="Say hello"
         title={<>We'd <span className="text-sky-dark">love</span> to hear from you</>}
         subtitle="Questions, a visit, or just a friendly hello — pick whichever way is easiest for you. We promise a warm, prompt reply."
         crumbs={[{ label: "Contact" }]}
@@ -131,7 +131,6 @@ export default function ContactPage() {
           <SmartImage
             src="/images/contact-campus.jpg"
             alt={`The ${site.shortName} campus`}
-            emoji="🏫"
             tone="sky"
             className="h-72 w-full sm:h-96"
           />

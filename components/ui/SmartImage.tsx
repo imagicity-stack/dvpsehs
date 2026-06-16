@@ -4,28 +4,28 @@ import { useState } from "react";
 
 type Tone = "crimson" | "gold" | "sky" | "coral" | "grass" | "grape" | "sunshine" | "bubblegum";
 
-const tones: Record<Tone, { from: string; to: string; ink: string }> = {
-  crimson: { from: "#B6403B", to: "#6B1212", ink: "rgba(255,253,248,0.92)" },
-  gold: { from: "#E7CD86", to: "#A67C24", ink: "rgba(36,27,46,0.85)" },
-  sky: { from: "#A9DCF7", to: "#1E83BC", ink: "rgba(255,255,255,0.95)" },
-  coral: { from: "#FFA8A8", to: "#E8453F", ink: "rgba(255,255,255,0.95)" },
-  grass: { from: "#A6E6B8", to: "#3AA95C", ink: "rgba(255,255,255,0.95)" },
-  grape: { from: "#C9AEEC", to: "#7B4CC0", ink: "rgba(255,255,255,0.95)" },
-  sunshine: { from: "#FFE08A", to: "#F4A500", ink: "rgba(36,27,46,0.85)" },
-  bubblegum: { from: "#FFC2D4", to: "#F2628C", ink: "rgba(255,255,255,0.95)" },
+const tones: Record<Tone, { from: string; to: string }> = {
+  crimson: { from: "#B6403B", to: "#6B1212" },
+  gold: { from: "#E7CD86", to: "#A67C24" },
+  sky: { from: "#A9DCF7", to: "#1E83BC" },
+  coral: { from: "#FFA8A8", to: "#E8453F" },
+  grass: { from: "#A6E6B8", to: "#3AA95C" },
+  grape: { from: "#C9AEEC", to: "#7B4CC0" },
+  sunshine: { from: "#FFE08A", to: "#F4A500" },
+  bubblegum: { from: "#FFC2D4", to: "#F2628C" },
 };
 
 /**
  * An image slot with a graceful, designed fallback.
  *
- * `src` points at a file the school will add later (see IMAGES.md). Until that
- * file exists, a polished gradient + emoji panel is shown so the layout always
- * looks intentional. The real photo simply appears once committed to the repo.
+ * `src` points at a file the school will add later (see IMAGES.md). Until
+ * that file exists, a polished gradient panel — soft dot pattern + light
+ * sheen sweep — is shown so the layout always looks intentional. The real
+ * photo simply appears once committed to the repo.
  */
 export function SmartImage({
   src,
   alt,
-  emoji = "📸",
   tone = "crimson",
   className = "",
   imgClassName = "",
@@ -33,7 +33,6 @@ export function SmartImage({
 }: {
   src: string;
   alt: string;
-  emoji?: string;
   tone?: Tone;
   className?: string;
   imgClassName?: string;
@@ -45,9 +44,8 @@ export function SmartImage({
 
   return (
     <div className={`relative overflow-hidden bg-cream ${className}`}>
-      {/* Designed fallback (always rendered behind the photo) */}
       <div
-        className="absolute inset-0 grid place-items-center"
+        className="absolute inset-0"
         style={{ backgroundImage: `linear-gradient(150deg, ${t.from}, ${t.to})` }}
         aria-hidden={!failed}
       >
@@ -55,16 +53,20 @@ export function SmartImage({
           className="absolute inset-0 opacity-25"
           style={{
             backgroundImage:
-              "radial-gradient(rgba(255,255,255,0.6) 1.5px, transparent 1.5px)",
+              "radial-gradient(rgba(255,255,255,0.55) 1.5px, transparent 1.5px)",
             backgroundSize: "26px 26px",
           }}
         />
-        <span className="relative text-6xl drop-shadow-md sm:text-7xl">{emoji}</span>
-        {/* soft sheen */}
-        <span className="pointer-events-none absolute -inset-y-10 left-0 w-1/3 animate-sheen-sweep bg-white/20 blur-md" />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "radial-gradient(ellipse at 25% 20%, rgba(255,255,255,0.18), transparent 55%)",
+          }}
+        />
+        <span className="pointer-events-none absolute -inset-y-10 left-0 w-1/3 animate-sheen-sweep bg-white/15 blur-md" />
       </div>
 
-      {/* Real photo (fades in when present) */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}

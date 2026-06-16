@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CalendarHeart, ClipboardList, Handshake, Phone, Mail, MapPin, Clock } from "lucide-react";
+import { CalendarHeart, ClipboardList, Handshake, Phone, Mail, MapPin, Clock, Sparkles } from "lucide-react";
 import { PageHero } from "@/components/sections/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
@@ -88,7 +88,6 @@ export default function AdmissionsPage() {
                 <SmartImage
                   src="/images/admissions-welcome.jpg"
                   alt="A happy child being welcomed at Drona Valley"
-                  emoji="🎒"
                   tone="gold"
                   className="aspect-[16/10] w-full"
                 />
@@ -140,7 +139,9 @@ export default function AdmissionsPage() {
               </div>
 
               <div className="rounded-4xl border-2 border-dashed border-gold/50 bg-gold-light/20 p-6 text-center">
-                <p className="font-display text-sm font-bold text-crimson">A seamless next step 🌟</p>
+                <p className="inline-flex items-center gap-2 font-display text-sm font-bold text-crimson">
+                  <Sparkles className="h-4 w-4 text-gold-dark" /> A seamless next step
+                </p>
                 <p className="mt-1 text-sm text-ink/70">
                   As the early-years wing of {site.parent}, our graduates enjoy a warm, prioritised pathway into
                   Grade 1 — one happy family, all the way through.

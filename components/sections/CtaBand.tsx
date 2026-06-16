@@ -45,7 +45,6 @@ export function CtaBand({
               <SmartImage
                 src="/images/cta-visit.jpg"
                 alt="Parents and child visiting the Drona Valley campus"
-                emoji="🤝"
                 tone="gold"
                 className="aspect-[4/5] w-full"
               />

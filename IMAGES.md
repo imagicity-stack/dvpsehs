@@ -1,4 +1,4 @@
-# 📸 Image Guide — Drona Valley Public School website
+# Image Guide — Drona Valley Public School website
 
 The site is designed around real photography, but **every image slot has a
 polished illustrated fallback** (a soft gradient + emoji panel) so the live
@@ -101,4 +101,4 @@ Mosaic wall. `gallery-art` and `gallery-music` are the **tall** tiles;
 - [ ] Exact filenames (lowercase, hyphens, `.jpg`)
 - [ ] Compressed (< ~300 KB each)
 - [ ] Faces sharp & centred (cover-cropped)
-- [ ] Commit → push → live ✨
+- [ ] Commit → push → live

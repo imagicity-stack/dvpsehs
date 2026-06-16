@@ -60,7 +60,7 @@ export function ContactForm() {
         <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-sky text-white">
           <CheckCircle2 className="h-8 w-8" />
         </div>
-        <h3 className="mt-5 font-display text-2xl font-bold">Message sent! 💌</h3>
+        <h3 className="mt-5 font-display text-2xl font-bold">Message sent!</h3>
         <p className="mx-auto mt-3 max-w-md text-ink/70">{serverMsg}</p>
         <p className="mt-4 text-sm text-ink/55">
           Prefer to talk? Call us on{" "}
@@ -136,7 +136,7 @@ export function ContactForm() {
           value={data.message}
           onChange={(e) => set("message", e.target.value)}
           error={!!errors.message}
-          placeholder="How can we help? 😊"
+          placeholder="How can we help?"
         />
       </FieldShell>
 

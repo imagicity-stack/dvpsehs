@@ -13,20 +13,20 @@ export const metadata: Metadata = {
 };
 
 type Tone = "coral" | "sky" | "grass" | "grape" | "sunshine" | "bubblegum" | "gold" | "crimson";
-type Tile = { emoji: string; title: string; note: string; tone: Tone; img: string; span?: string };
+type Tile = { title: string; note: string; tone: Tone; img: string; span?: string };
 
 const tiles: Tile[] = [
-  { emoji: "🎨", title: "Messy Art Mondays", note: "Hands-on, heart-full creativity.", tone: "coral", img: "/images/gallery-art.jpg", span: "sm:row-span-2" },
-  { emoji: "🌱", title: "Our Little Garden", note: "Planting, watering, wondering.", tone: "grass", img: "/images/gallery-garden.jpg" },
-  { emoji: "📚", title: "Story Circle", note: "Once upon a time, every day.", tone: "sky", img: "/images/gallery-story.jpg" },
-  { emoji: "🎶", title: "Music & Movement", note: "Shake, sing, sway, smile.", tone: "sunshine", img: "/images/gallery-music.jpg", span: "sm:row-span-2" },
-  { emoji: "🧩", title: "Discovery Stations", note: "Puzzles, blocks & big ideas.", tone: "grape", img: "/images/gallery-discovery.jpg" },
-  { emoji: "⚽", title: "Outdoor Play", note: "Running, climbing, giggling.", tone: "coral", img: "/images/gallery-outdoor.jpg" },
-  { emoji: "🎭", title: "Dress-up & Drama", note: "Today I'm a dragon… a star!", tone: "grass", img: "/images/gallery-drama.jpg" },
-  { emoji: "🎉", title: "Festivals & Friends", note: "Every culture, every celebration.", tone: "bubblegum", img: "/images/gallery-festivals.jpg", span: "sm:col-span-2" },
-  { emoji: "🥪", title: "Healthy Snack Time", note: "Fuel for busy little bodies.", tone: "gold", img: "/images/gallery-snack.jpg" },
-  { emoji: "🔬", title: "Bubble Science", note: "What happens if…?", tone: "sky", img: "/images/gallery-science.jpg" },
-  { emoji: "💛", title: "Cuddle Corner", note: "Because feelings matter too.", tone: "grape", img: "/images/gallery-cuddle.jpg" },
+  { title: "Messy Art Mondays", note: "Hands-on, heart-full creativity.", tone: "coral", img: "/images/gallery-art.jpg", span: "sm:row-span-2" },
+  { title: "Our Little Garden", note: "Planting, watering, wondering.", tone: "grass", img: "/images/gallery-garden.jpg" },
+  { title: "Story Circle", note: "Once upon a time, every day.", tone: "sky", img: "/images/gallery-story.jpg" },
+  { title: "Music & Movement", note: "Shake, sing, sway, smile.", tone: "sunshine", img: "/images/gallery-music.jpg", span: "sm:row-span-2" },
+  { title: "Discovery Stations", note: "Puzzles, blocks & big ideas.", tone: "grape", img: "/images/gallery-discovery.jpg" },
+  { title: "Outdoor Play", note: "Running, climbing, giggling.", tone: "coral", img: "/images/gallery-outdoor.jpg" },
+  { title: "Dress-up & Drama", note: "Today I'm a dragon… a star!", tone: "grass", img: "/images/gallery-drama.jpg" },
+  { title: "Festivals & Friends", note: "Every culture, every celebration.", tone: "bubblegum", img: "/images/gallery-festivals.jpg", span: "sm:col-span-2" },
+  { title: "Healthy Snack Time", note: "Fuel for busy little bodies.", tone: "gold", img: "/images/gallery-snack.jpg" },
+  { title: "Bubble Science", note: "What happens if…?", tone: "sky", img: "/images/gallery-science.jpg" },
+  { title: "Cuddle Corner", note: "Because feelings matter too.", tone: "grape", img: "/images/gallery-cuddle.jpg" },
 ];
 
 export default function GalleryPage() {
@@ -45,7 +45,7 @@ export default function GalleryPage() {
           {tiles.map((t, i) => (
             <Reveal key={t.title} delay={(i % 4) * 0.05} className={t.span ?? ""}>
               <figure className={`group relative h-full overflow-hidden rounded-[1.6rem] border-2 border-white shadow-card ${t.span ?? ""}`}>
-                <SmartImage src={t.img} alt={t.title} emoji={t.emoji} tone={t.tone} className="h-full w-full" imgClassName="transition-transform duration-700 group-hover:scale-105" />
+                <SmartImage src={t.img} alt={t.title} tone={t.tone} className="h-full w-full" imgClassName="transition-transform duration-700 group-hover:scale-105" />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/10 to-transparent" />
                 <figcaption className="absolute inset-x-0 bottom-0 p-4">
                   <p className="font-display text-lg font-semibold text-ivory drop-shadow">{t.title}</p>

@@ -3,13 +3,15 @@
  * easy to tweak without touching components.
  */
 
+import type { GlyphName } from "@/components/ui/Glyph";
+
 export type Program = {
   slug: string;
   name: string;
   age: string;
   color: "sunshine" | "sky" | "coral" | "grass" | "grape" | "tangerine" | "bubblegum";
   tone: "sky" | "coral" | "grass" | "grape" | "sunshine" | "bubblegum";
-  emoji: string;
+  icon: GlyphName;
   img: string;
   tagline: string;
   blurb: string;
@@ -24,7 +26,7 @@ export const programs: Program[] = [
     age: "2 – 3 yrs",
     color: "bubblegum",
     tone: "bubblegum",
-    emoji: "🧸",
+    icon: "play",
     img: "/images/class-play.jpg",
     tagline: "First steps away from home, into a warm hug.",
     blurb:
@@ -43,7 +45,7 @@ export const programs: Program[] = [
     age: "3 – 4 yrs",
     color: "sky",
     tone: "sky",
-    emoji: "🚂",
+    icon: "nursery",
     img: "/images/class-nursery.jpg",
     tagline: "The wonder years — curiosity turned all the way up.",
     blurb:
@@ -62,7 +64,7 @@ export const programs: Program[] = [
     age: "4 – 5 yrs",
     color: "grass",
     tone: "grass",
-    emoji: "🌟",
+    icon: "lkg",
     img: "/images/class-lkg.jpg",
     tagline: "Big ideas in little minds.",
     blurb:
@@ -81,7 +83,7 @@ export const programs: Program[] = [
     age: "5 – 6 yrs",
     color: "tangerine",
     tone: "sunshine",
-    emoji: "🎓",
+    icon: "ukg",
     img: "/images/class-ukg.jpg",
     tagline: "Ready, steady, big school!",
     blurb:
@@ -142,16 +144,16 @@ export const pillars: Pillar[] = [
   },
 ];
 
-export type DayStep = { time: string; title: string; emoji: string; note: string };
+export type DayStep = { time: string; title: string; icon: GlyphName; note: string };
 
 export const aDayInLife: DayStep[] = [
-  { time: "8:30", title: "Sunshine Welcome", emoji: "🌞", note: "Hugs, hellos and a happy start to the day." },
-  { time: "9:00", title: "Circle Time", emoji: "⭕", note: "Songs, stories, weather and the day's big wonder." },
-  { time: "9:45", title: "Discovery Stations", emoji: "🔍", note: "Phonics, numbers and STEM through hands-on play." },
-  { time: "10:30", title: "Snack & Giggles", emoji: "🍎", note: "Healthy bites and lots of friendly chatter." },
-  { time: "11:00", title: "Outdoor Adventures", emoji: "🌳", note: "Garden, sandpit, climbing and running free." },
-  { time: "11:45", title: "Create & Imagine", emoji: "🎨", note: "Art, music, role-play and messy masterpieces." },
-  { time: "12:30", title: "Story & Wind-down", emoji: "📚", note: "Calm corners, books and a gentle goodbye." },
+  { time: "8:30", title: "Sunshine Welcome", icon: "sun", note: "Hugs, hellos and a happy start to the day." },
+  { time: "9:00", title: "Circle Time", icon: "book", note: "Songs, stories, weather and the day's big wonder." },
+  { time: "9:45", title: "Discovery Stations", icon: "search", note: "Phonics, numbers and STEM through hands-on play." },
+  { time: "10:30", title: "Snack & Giggles", icon: "apple", note: "Healthy bites and lots of friendly chatter." },
+  { time: "11:00", title: "Outdoor Adventures", icon: "tree", note: "Garden, sandpit, climbing and running free." },
+  { time: "11:45", title: "Create & Imagine", icon: "palette", note: "Art, music, role-play and messy masterpieces." },
+  { time: "12:30", title: "Story & Wind-down", icon: "book", note: "Calm corners, books and a gentle goodbye." },
 ];
 
 export type Faq = { q: string; a: string };
@@ -218,11 +220,11 @@ export const stats: Stat[] = [
   { value: "100%", label: "Play-based learning" },
 ];
 
-export type Experience = { title: string; note: string; img: string; emoji: string; tone: "coral" | "sky" | "grass" | "grape" | "sunshine" | "bubblegum" };
+export type Experience = { title: string; note: string; img: string; icon: GlyphName; tone: "coral" | "sky" | "grass" | "grape" | "sunshine" | "bubblegum" };
 
 export const experiences: Experience[] = [
-  { title: "Messy, marvellous art", note: "Where little hands make big masterpieces.", img: "/images/experience-art.jpg", emoji: "🎨", tone: "coral" },
-  { title: "Wonder in the garden", note: "Mud kitchens, sprouting seeds and open skies.", img: "/images/experience-garden.jpg", emoji: "🌱", tone: "grass" },
-  { title: "Stories that sparkle", note: "Cosy corners and once-upon-a-times, every day.", img: "/images/experience-reading.jpg", emoji: "📚", tone: "grape" },
-  { title: "Music & movement", note: "Shake, sing, sway — joy you can hear.", img: "/images/experience-music.jpg", emoji: "🎶", tone: "sunshine" },
+  { title: "Messy, marvellous art", note: "Where little hands make big masterpieces.", img: "/images/experience-art.jpg", icon: "palette", tone: "coral" },
+  { title: "Wonder in the garden", note: "Mud kitchens, sprouting seeds and open skies.", img: "/images/experience-garden.jpg", icon: "sprout", tone: "grass" },
+  { title: "Stories that sparkle", note: "Cosy corners and once-upon-a-times, every day.", img: "/images/experience-reading.jpg", icon: "book", tone: "grape" },
+  { title: "Music & movement", note: "Shake, sing, sway — joy you can hear.", img: "/images/experience-music.jpg", icon: "music", tone: "sunshine" },
 ];

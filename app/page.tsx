@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, Quote, Star as StarIcon } from "lucide-react";
+import { ArrowUpRight, Quote, Sparkle, Star as StarIcon } from "lucide-react";
 import { Hero } from "@/components/sections/Hero";
 import { Pillars } from "@/components/sections/Pillars";
 import { ProgramCard } from "@/components/sections/ProgramCard";
@@ -8,6 +8,7 @@ import { WhatsNext } from "@/components/sections/WhatsNext";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { SmartImage } from "@/components/ui/SmartImage";
+import { Glyph } from "@/components/ui/Glyph";
 import { programs, stats, aDayInLife, testimonials, experiences } from "@/lib/content";
 import { site } from "@/lib/site";
 
@@ -22,8 +23,8 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-crimson-rich py-4">
         <div className="flex animate-marquee whitespace-nowrap">
           {[...values, ...values, ...values].map((v, i) => (
-            <span key={i} className="mx-7 inline-flex items-center gap-7 font-display text-lg italic text-ivory/90">
-              {v} <span className="not-italic text-gold-light">✦</span>
+            <span key={i} className="mx-7 inline-flex items-center gap-5 font-display text-lg italic text-ivory/90">
+              {v} <Sparkle className="not-italic h-3.5 w-3.5 fill-gold-light text-gold-light" />
             </span>
           ))}
         </div>
@@ -54,7 +55,7 @@ export default function HomePage() {
           {experiences.map((e, i) => (
             <Reveal key={e.title} delay={(i % 4) * 0.06} className={i === 0 ? "col-span-2 row-span-2" : i === 3 ? "col-span-2 lg:col-span-1" : ""}>
               <figure className="group relative h-full overflow-hidden rounded-[1.7rem] border-2 border-white shadow-card">
-                <SmartImage src={e.img} alt={e.title} emoji={e.emoji} tone={e.tone} className="h-full w-full" imgClassName="transition-transform duration-700 group-hover:scale-105" />
+                <SmartImage src={e.img} alt={e.title} tone={e.tone} className="h-full w-full" imgClassName="transition-transform duration-700 group-hover:scale-105" />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/10 to-transparent" />
                 <figcaption className="absolute inset-x-0 bottom-0 p-5">
                   <p className="font-display text-xl font-semibold text-ivory drop-shadow">{e.title}</p>
@@ -115,8 +116,8 @@ export default function HomePage() {
             {aDayInLife.map((d, i) => (
               <Reveal key={d.time} delay={i * 0.04}>
                 <li className={`relative flex items-center gap-5 sm:gap-8 ${i % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"}`}>
-                  <div className="z-10 grid h-14 w-14 shrink-0 place-items-center rounded-full bg-ivory text-2xl shadow-lux ring-1 ring-gold/30 sm:absolute sm:left-1/2 sm:-translate-x-1/2">
-                    {d.emoji}
+                  <div className="z-10 grid h-14 w-14 shrink-0 place-items-center rounded-full bg-ivory text-crimson shadow-lux ring-1 ring-gold/30 sm:absolute sm:left-1/2 sm:-translate-x-1/2">
+                    <Glyph name={d.icon} className="h-6 w-6" strokeWidth={1.8} />
                   </div>
                   <div className={`flex-1 rounded-[1.4rem] border border-ink/5 bg-white/90 p-5 shadow-card backdrop-blur sm:max-w-[42%] ${i % 2 === 0 ? "sm:mr-auto sm:text-right" : "sm:ml-auto"}`}>
                     <span className="font-fun text-sm font-bold text-crimson">{d.time} AM</span>
@@ -136,7 +137,7 @@ export default function HomePage() {
           <Reveal>
             <div className="relative mx-auto max-w-xs">
               <div className="overflow-hidden rounded-[1.8rem] border-4 border-white shadow-lux organic">
-                <SmartImage src="/images/principal.jpg" alt="A warm message from our Head of School" emoji="👩‍🏫" tone="crimson" className="aspect-[4/5] w-full" />
+                <SmartImage src="/images/principal.jpg" alt="A warm message from our Head of School" tone="crimson" className="aspect-[4/5] w-full" />
               </div>
               <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-crimson-rich px-5 py-2 text-center text-xs font-semibold text-ivory shadow-lux">
                 Head of School

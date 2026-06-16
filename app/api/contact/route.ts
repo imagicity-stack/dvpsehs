@@ -57,14 +57,19 @@ export async function POST(req: Request) {
     });
   } catch (err) {
     console.error("[contact] mail error:", err);
+    const debug = process.env.MAIL_DEBUG === "true";
     return NextResponse.json(
-      { ok: false, message: "Sorry — we couldn't send your message right now. Please email us directly or try again shortly." },
+      {
+        ok: false,
+        message: "Sorry — we couldn't send your message right now. Please email us directly or try again shortly.",
+        ...(debug ? { detail: err instanceof Error ? err.message : String(err) } : {}),
+      },
       { status: 502 },
     );
   }
 
   return NextResponse.json({
     ok: true,
-    message: "Thanks for reaching out! We've received your message and will reply soon. 💛",
+    message: "Thanks for reaching out! We've received your message and will reply soon.",
   });
 }

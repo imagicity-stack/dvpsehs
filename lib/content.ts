@@ -19,18 +19,18 @@ export type Program = {
 
 export const programs: Program[] = [
   {
-    slug: "toddler-nest",
-    name: "Toddler Nest",
+    slug: "play",
+    name: "Play",
     age: "2 – 3 yrs",
     color: "bubblegum",
     tone: "bubblegum",
     emoji: "🧸",
-    img: "/images/program-toddler-nest.jpg",
+    img: "/images/class-play.jpg",
     tagline: "First steps away from home, into a warm hug.",
     blurb:
       "A gentle, sensory-rich first experience of school. We focus on comfort, secure attachment and the magic of discovering the world through touch, sound and play.",
     highlights: [
-      "Settling-in programme with parents",
+      "Settling-in routine with parents",
       "Sensory & messy play",
       "Toilet-training support",
       "Music, movement & rhymes",
@@ -38,13 +38,13 @@ export const programs: Program[] = [
     ratio: "1 : 6",
   },
   {
-    slug: "playgroup",
-    name: "Playgroup",
+    slug: "nursery",
+    name: "Nursery",
     age: "3 – 4 yrs",
     color: "sky",
     tone: "sky",
     emoji: "🚂",
-    img: "/images/program-playgroup.jpg",
+    img: "/images/class-nursery.jpg",
     tagline: "The wonder years — curiosity turned all the way up.",
     blurb:
       "Children become confident explorers. Through guided play, storytelling and outdoor adventures they build language, friendships and a love for figuring things out.",
@@ -57,13 +57,13 @@ export const programs: Program[] = [
     ratio: "1 : 8",
   },
   {
-    slug: "nursery",
-    name: "Nursery (Pre-KG)",
+    slug: "lkg",
+    name: "Lower Kindergarten",
     age: "4 – 5 yrs",
     color: "grass",
     tone: "grass",
     emoji: "🌟",
-    img: "/images/program-nursery.jpg",
+    img: "/images/class-lkg.jpg",
     tagline: "Big ideas in little minds.",
     blurb:
       "A thoughtfully structured year that blends play with purpose. Children grow into independent thinkers, ready to read, write, count and collaborate.",
@@ -76,14 +76,14 @@ export const programs: Program[] = [
     ratio: "1 : 10",
   },
   {
-    slug: "kindergarten",
-    name: "Kindergarten (KG)",
+    slug: "ukg",
+    name: "Upper Kindergarten",
     age: "5 – 6 yrs",
     color: "tangerine",
     tone: "sunshine",
     emoji: "🎓",
-    img: "/images/program-kindergarten.jpg",
-    tagline: "Ready, steady, school!",
+    img: "/images/class-ukg.jpg",
+    tagline: "Ready, steady, big school!",
     blurb:
       "The launchpad to formal schooling. Children consolidate literacy and numeracy, build confidence on stage, and step into Grade 1 brimming with self-belief.",
     highlights: [
@@ -159,7 +159,7 @@ export type Faq = { q: string; a: string };
 export const faqs: Faq[] = [
   {
     q: "What ages do you welcome?",
-    a: "We welcome children from 2 to 6 years across four programmes — Toddler Nest, Playgroup, Nursery and Kindergarten. Each stage is designed for that exact age and stage of development.",
+    a: "We welcome children from 2 to 6 years across four classes — Play, Nursery, Lower Kindergarten (LKG) and Upper Kindergarten (UKG). Each stage is designed for that exact age and stage of development.",
   },
   {
     q: "What are the school timings?",
@@ -167,7 +167,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "How big are the classes?",
-    a: "Deliberately small. Ratios range from 1:6 in Toddler Nest to 1:12 in Kindergarten, so every child is genuinely known and supported.",
+    a: "Deliberately small. Ratios range from 1:6 in Play class to 1:12 in Upper Kindergarten, so every child is genuinely known and supported.",
   },
   {
     q: "Is the campus safe and secure?",
@@ -175,11 +175,11 @@ export const faqs: Faq[] = [
   },
   {
     q: "Do you provide meals?",
-    a: "We offer a supervised healthy-snack programme and fresh drinking water. Many families send a nutritious tiffin from home; we share simple, dietitian-approved menu ideas through the parent app.",
+    a: "We offer a supervised healthy-snack routine and fresh drinking water. Many families send a nutritious tiffin from home; we share simple, dietitian-approved menu ideas through the parent app.",
   },
   {
     q: "How does my child move on to 'big school'?",
-    a: "As the early-years wing of The Elden Heights School, Drona Valley graduates enjoy a warm, prioritised pathway into Grade 1 — same family, same values, a seamless next chapter.",
+    a: "Through our partnership with The Elden Heights School, Drona Valley graduates enjoy a warm, prioritised pathway into Grade 1 — and stay with the same family all the way through to Class 12.",
   },
 ];
 
@@ -190,7 +190,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "My daughter cried when school closed for the holidays — that tells you everything! The teachers know her better than I sometimes do.",
     name: "Ananya R.",
-    relation: "Mother of a Playgroup star",
+    relation: "Mother of a Nursery star",
     color: "bg-sky-light",
   },
   {
@@ -204,7 +204,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "Knowing it's backed by The Elden Heights School gave us real confidence. It feels like the beginning of a long, lovely journey — not just a playschool.",
     name: "Farah M.",
-    relation: "Mother of a Toddler Nest cutie",
+    relation: "Mother of a Play-class cutie",
     color: "bg-coral-light",
   },
 ];

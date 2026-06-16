@@ -11,8 +11,8 @@ Built with **Next.js (App Router) + TypeScript + Tailwind CSS**, designed for
 
 ## ✨ What's inside
 
-- **9 marketing pages** — Home, About, Programmes, Life @ Drona Valley (gallery),
-  Admissions, Contact, plus a Policies hub.
+- **9 marketing pages** — Home, About, Our Classes (Play / Nursery / LKG / UKG),
+  Gallery, Admissions, Contact, plus a Policies hub.
 - **7 full policy pages** — Privacy, Terms, Admissions, Safeguarding & Child
   Protection, Anti-Bullying, Health & Safety, Fees & Refund.
 - **Two independent contact forms**, each wired to its **own SMTP mailbox**:
@@ -72,7 +72,7 @@ and art-direction/AI prompts. Just add the files to `public/images/` and push.
 | File | What it controls |
 |---|---|
 | `lib/site.ts` | School name, phone, email, address, hours, social links, founding year, partnership wording. |
-| `lib/content.ts` | Programmes, "why us" pillars, daily timeline, testimonials, stats, experiences. |
+| `lib/content.ts` | Classes, "why us" pillars, daily timeline, testimonials, stats, experiences. |
 | `lib/policies.ts` | The full text of all policy pages. |
 
 ---

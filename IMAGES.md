@@ -43,13 +43,13 @@ Aim for one cohesive look across every image:
 | `principal.jpg` | Head of School message | **4:5 portrait**, ~900×1125 | Warm portrait of the Head/Principal (smiling, approachable). |
 | `cta-visit.jpg` | "Book a visit" call-to-action | **4:5 portrait**, ~900×1125 | Parent + child on a happy campus tour. |
 
-### Programmes page (`/programs`)
+### Our Classes page (`/programs`)
 | Filename | Where | Aspect / size | What to show |
 |---|---|---|---|
-| `program-toddler-nest.jpg` | Toddler Nest card | **16:10**, ~1000×625 | Toddlers (2–3) in sensory / cuddle play. |
-| `program-playgroup.jpg` | Playgroup card | 16:10, ~1000×625 | 3–4 year olds exploring / circle time. |
-| `program-nursery.jpg` | Nursery (Pre-KG) card | 16:10, ~1000×625 | 4–5 year olds doing hands-on activities. |
-| `program-kindergarten.jpg` | Kindergarten card | 16:10, ~1000×625 | 5–6 year olds reading / presenting. |
+| `class-play.jpg` | Play class card (2–3 yrs) | **16:10**, ~1000×625 | Toddlers (2–3) in sensory / cuddle play. |
+| `class-nursery.jpg` | Nursery card (3–4 yrs) | 16:10, ~1000×625 | 3–4 year olds exploring / circle time. |
+| `class-lkg.jpg` | Lower Kindergarten card (4–5 yrs) | 16:10, ~1000×625 | 4–5 year olds doing hands-on activities. |
+| `class-ukg.jpg` | Upper Kindergarten card (5–6 yrs) | 16:10, ~1000×625 | 5–6 year olds reading / presenting. |
 | `programs-banner.jpg` | Wide philosophy banner | **wide 21:9**, ~1600×700 | Group of children deep in joyful learning. |
 
 ### Life @ Drona Valley — Gallery (`/gallery`)

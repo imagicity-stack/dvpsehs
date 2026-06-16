@@ -10,9 +10,9 @@ import { SmartImage } from "@/components/ui/SmartImage";
 import { programs, aDayInLife } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Programmes & Curriculum",
+  title: "Our Classes & Curriculum",
   description:
-    "From Toddler Nest to Kindergarten, explore Drona Valley's play-based early-years curriculum — phonics, numeracy, STEM, art, music and outdoor discovery for ages 2–6.",
+    "From Play to Upper Kindergarten, explore Drona Valley's play-based early-years curriculum — phonics, numeracy, STEM, art, music and outdoor discovery for ages 2–6.",
   alternates: { canonical: "/programs" },
 };
 
@@ -31,14 +31,14 @@ export default function ProgramsPage() {
   return (
     <>
       <PageHero
-        kicker="Programmes · Ages 2–6"
+        kicker="Our classes · Ages 2–6"
         title={<>A curriculum built for <span className="text-grape-dark">giggles &amp; growth</span></>}
-        subtitle="Every programme follows a play-based, child-led approach — gently structured so children build real skills while doing what they love most: playing."
-        crumbs={[{ label: "Programmes" }]}
+        subtitle="Every class follows a play-based, child-led approach — gently structured so children build real skills while doing what they love most: playing."
+        crumbs={[{ label: "Our Classes" }]}
         tone="grape"
       />
 
-      {/* Programmes */}
+      {/* Classes */}
       <section className="container-wide py-14">
         <div className="grid gap-6 md:grid-cols-2">
           {programs.map((p) => (
@@ -124,7 +124,7 @@ export default function ProgramsPage() {
       </section>
 
       <CtaBand
-        title="Curious which programme fits your child?"
+        title="Curious which class fits your child?"
         subtitle="Tell us their age and we'll guide you to the perfect starting point — then book you in for a visit."
       />
     </>

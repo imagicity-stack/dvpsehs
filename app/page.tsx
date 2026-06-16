@@ -78,14 +78,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Programmes */}
+      {/* Classes */}
       <section className="relative mt-12 overflow-hidden bg-sand/60 py-20">
         <div className="pointer-events-none absolute -left-20 top-10 h-72 w-72 rounded-full bg-gold/10 blur-3xl" aria-hidden />
         <div className="container-wide relative">
           <SectionHeading
-            kicker="Our programmes"
+            kicker="Our classes"
             title={<>Four joyful stages, one <span className="italic text-gold-foil">happy journey</span></>}
-            subtitle="From first steps away from home to confident, school-ready graduates — each programme is crafted for exactly where your child is."
+            subtitle="From first steps away from home to confident, school-ready graduates — each class is crafted for exactly where your child is."
           />
           <div className="mt-14 grid gap-6 md:grid-cols-2">
             {programs.map((p) => (

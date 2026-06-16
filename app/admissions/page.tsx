@@ -42,7 +42,7 @@ export default function AdmissionsPage() {
       <PageHero
         kicker="Admissions open · Ages 2–6"
         title={<>Let's begin your child's <span className="text-crimson">happiest adventure</span></>}
-        subtitle="Admissions run year-round, but our classes are kept deliberately small — so the sooner you register, the better your chances of your preferred programme and start date."
+        subtitle="Admissions run year-round, but our classes are kept deliberately small — so the sooner you register, the better your chances of your preferred class and start date."
         crumbs={[{ label: "Admissions" }]}
         tone="coral"
       />
@@ -98,9 +98,9 @@ export default function AdmissionsPage() {
                 </p>
               </div>
 
-              {/* Programmes quick list */}
+              {/* Classes quick list */}
               <div className="rounded-[1.6rem] bg-grape-light/40 p-6">
-                <h3 className="font-display text-lg font-bold">Programmes you can register for</h3>
+                <h3 className="font-display text-lg font-bold">Classes you can register for</h3>
                 <ul className="mt-4 space-y-2.5">
                   {programs.map((p) => (
                     <li key={p.slug} className="flex items-center justify-between rounded-2xl bg-white/70 px-4 py-3">

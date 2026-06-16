@@ -62,8 +62,13 @@ export async function POST(req: Request) {
     });
   } catch (err) {
     console.error("[register] mail error:", err);
+    const debug = process.env.MAIL_DEBUG === "true";
     return NextResponse.json(
-      { ok: false, message: "Sorry — we couldn't send your enquiry right now. Please call us or try again shortly." },
+      {
+        ok: false,
+        message: "Sorry — we couldn't send your enquiry right now. Please call us or try again shortly.",
+        ...(debug ? { detail: err instanceof Error ? err.message : String(err) } : {}),
+      },
       { status: 502 },
     );
   }

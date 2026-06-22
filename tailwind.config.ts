@@ -46,6 +46,8 @@ const config: Config = {
         fun: ["var(--font-fredoka)", "system-ui", "sans-serif"],
         // readable body
         body: ["var(--font-nunito)", "system-ui", "sans-serif"],
+        // geometric Bauhaus-style mark for the "DUNIZ" brand name
+        bauhaus: ["var(--font-bauhaus)", "Futura", "system-ui", "sans-serif"],
       },
       borderRadius: {
         blob: "42% 58% 63% 37% / 41% 44% 56% 59%",

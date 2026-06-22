@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Fredoka, Nunito, Comfortaa } from "next/font/google";
+import { Fraunces, Fredoka, Nunito } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Header } from "@/components/layout/Header";
@@ -30,12 +31,11 @@ const nunito = Nunito({
   display: "swap",
 });
 
-// Geometric, circular Bauhaus-style face — reserved for the "DUNIZ" brand mark.
-// (ITC Bauhaus is not web-licensable for free; Comfortaa is the closest open
-// equivalent. To use the genuine artwork, swap this for a next/font/local file.)
-const comfortaa = Comfortaa({
-  subsets: ["latin"],
-  weight: ["500", "700"],
+// The genuine Bauhaus 93 — heavy geometric display face, self-hosted and
+// reserved exclusively for the "DUNIZ" brand mark.
+const bauhaus = localFont({
+  src: "./fonts/Bauhaus93.ttf",
+  weight: "400",
   variable: "--font-bauhaus",
   display: "swap",
 });
@@ -90,7 +90,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${fredoka.variable} ${nunito.variable} ${comfortaa.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${fredoka.variable} ${nunito.variable} ${bauhaus.variable}`}>
       <body>
         <a
           href="#main"

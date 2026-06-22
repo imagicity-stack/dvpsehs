@@ -7,6 +7,7 @@ import { Pillars } from "@/components/sections/Pillars";
 import { WhatsNext } from "@/components/sections/WhatsNext";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { EldenHeightsCrest } from "@/components/brand/EldenHeightsLogo";
+import { Duniz } from "@/components/brand/Duniz";
 import { WaveDivider } from "@/components/illustrations";
 import { SmartImage } from "@/components/ui/SmartImage";
 import { Glyph, type GlyphName } from "@/components/ui/Glyph";
@@ -58,7 +59,7 @@ export default function AboutPage() {
                 <span className="font-semibold text-crimson">{site.parent}</span>, we carry that belief into a
                 bright new era — pairing heartfelt early teaching with one of the region's most respected names
                 in education. Powered by{" "}
-                <span className="font-semibold">{site.poweredBy}</span>, every detail is crafted with care.
+                <Duniz className="font-semibold" />, every detail is crafted with care.
               </p>
               <p>
                 Today, thousands of confident, kind and curious graduates have walked our sunlit corridors —

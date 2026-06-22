@@ -73,9 +73,12 @@ export function DvpsLogo({
         <span className={`font-display text-[1.3rem] font-semibold leading-none tracking-tight sm:text-[1.45rem] ${invert ? "text-ivory" : "text-ink"}`}>
           Drona <span className={invert ? "text-gold-light" : "text-crimson"}>Valley</span>
         </span>
+        <span className={`mt-[6px] text-[0.62rem] font-bold uppercase leading-none tracking-[0.34em] ${invert ? "text-ivory/75" : "text-ink/60"}`}>
+          Public School
+        </span>
         {subline && (
-          <span className={`mt-[5px] text-[0.58rem] font-bold uppercase leading-none tracking-[0.22em] ${invert ? "text-ivory/65" : "text-ink/50"}`}>
-            Pre-Primary School · Ages 2–6
+          <span className={`mt-[5px] text-[0.55rem] font-semibold uppercase leading-none tracking-[0.2em] ${invert ? "text-ivory/55" : "text-ink/45"}`}>
+            Pre-Primary · Ages 2–6
           </span>
         )}
       </span>

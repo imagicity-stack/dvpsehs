@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Youtube, ArrowUpRight } from "lucide-react";
 import { DvpsLogo } from "@/components/brand/DvpsLogo";
+import { Duniz } from "@/components/brand/Duniz";
 import { EldenHeightsCrest } from "@/components/brand/EldenHeightsLogo";
 import { primaryNav, policyNav, site, fullAddress } from "@/lib/site";
 
@@ -93,7 +94,7 @@ export function Footer() {
         <div className="container-wide flex flex-col items-center justify-between gap-3 py-6 text-xs text-ivory/55 sm:flex-row">
           <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
           <p>
-            Powered by <span className="font-semibold text-gold-light">{site.poweredBy}</span>
+            Powered by <Duniz className="font-semibold text-gold-light" />
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
             <Link href="/policies/privacy" className="transition hover:text-gold-light">Privacy</Link>

@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { BrandImg } from "@/components/brand/BrandImg";
 
 /**
- * The Drona Valley mark — a rising sun over valley hills with a young sprout,
- * ringed in gold for a more premium feel. The crimson echoes the Elden
- * Heights crest, quietly tying the two brands together.
+ * Fallback Drona Valley mark — a rising sun over valley hills with a young
+ * sprout, ringed in gold. Shown until /images/dvps.png is committed; the
+ * crimson echoes the Elden Heights crest, quietly tying the two brands.
  */
-export function DvpsMark({ className = "" }: { className?: string }) {
+function DvpsMarkArt({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 100 100" className={className} role="img" aria-label={`${site.name} logo mark`} xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -50,6 +51,21 @@ export function DvpsMark({ className = "" }: { className?: string }) {
       <circle cx="50" cy="50" r="46.5" fill="none" stroke="url(#dvps-gold)" strokeWidth="3" />
       <circle cx="50" cy="50" r="42" fill="none" stroke="#8E1B1B" strokeWidth="1.4" opacity="0.55" />
     </svg>
+  );
+}
+
+/**
+ * The Drona Valley logo mark. Uses the uploaded /images/dvps.png and falls
+ * back to the designed SVG above until that file is present.
+ */
+export function DvpsMark({ className = "" }: { className?: string }) {
+  return (
+    <BrandImg
+      src="/images/dvps.png"
+      alt={`${site.name} logo`}
+      className={className}
+      fallback={<DvpsMarkArt className={className} />}
+    />
   );
 }
 

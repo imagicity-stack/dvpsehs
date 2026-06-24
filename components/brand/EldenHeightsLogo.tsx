@@ -1,15 +1,34 @@
 import { site } from "@/lib/site";
+import { BrandImg } from "@/components/brand/BrandImg";
 
 /**
- * A faithful, hand-built SVG recreation of The Elden Heights School crest:
- * a crimson shield bearing a white phoenix grasping the torch of knowledge,
- * framed by golden laurels above a ribbon reading "TOWARDS ETERNAL GLORY".
- *
- * Built as inline SVG so it stays razor-sharp at any size and inherits the
- * brand palette. To swap in the official artwork later, drop the file at
- * /public/elden-heights-logo.png and replace this component with an <Image/>.
+ * The Elden Heights School crest. Uses the uploaded /images/ehs.png and
+ * falls back to the hand-built SVG recreation below until that file exists.
  */
 export function EldenHeightsCrest({
+  className = "",
+  withBanner = true,
+}: {
+  className?: string;
+  withBanner?: boolean;
+}) {
+  return (
+    <BrandImg
+      src="/images/ehs.png"
+      alt={`${site.parent} crest — ${site.parentMotto}`}
+      className={className}
+      fallback={<EldenHeightsCrestArt className={className} withBanner={withBanner} />}
+    />
+  );
+}
+
+/**
+ * Fallback crest — a faithful, hand-built SVG recreation: a crimson shield
+ * bearing a white phoenix grasping the torch of knowledge, framed by golden
+ * laurels above a ribbon reading "TOWARDS ETERNAL GLORY". Razor-sharp at any
+ * size; shown until the official /images/ehs.png artwork is committed.
+ */
+function EldenHeightsCrestArt({
   className = "",
   withBanner = true,
 }: {

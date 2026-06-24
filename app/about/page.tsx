@@ -78,9 +78,19 @@ export default function AboutPage() {
                   className="aspect-[4/5] w-full"
                 />
               </div>
-              <div className="absolute -bottom-5 -right-4 rotate-3 rounded-2xl bg-white px-5 py-3 shadow-lux">
-                <p className="font-display text-2xl font-semibold text-gold-foil">Since {site.establishedYear}</p>
-                <p className="text-[0.7rem] font-semibold uppercase tracking-wider text-ink/55">7+ joyful years</p>
+              <div className="absolute -bottom-5 -right-4 rotate-3 rounded-2xl bg-white px-4 py-3 shadow-lux flex items-center gap-3">
+                <div className="h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-gold/40 shadow-sm">
+                  <SmartImage
+                    src="/images/dvpsowner.png"
+                    alt="Our Founder"
+                    tone="crimson"
+                    className="h-full w-full object-cover object-top"
+                  />
+                </div>
+                <div>
+                  <p className="font-display text-xl font-semibold text-gold-foil">Since {site.establishedYear}</p>
+                  <p className="text-[0.65rem] font-semibold uppercase tracking-wider text-ink/55">7+ joyful years</p>
+                </div>
               </div>
             </div>
           </Reveal>

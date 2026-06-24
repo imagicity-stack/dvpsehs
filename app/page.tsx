@@ -137,7 +137,7 @@ export default function HomePage() {
           <Reveal>
             <div className="relative mx-auto max-w-xs">
               <div className="overflow-hidden rounded-[1.8rem] border-4 border-white shadow-lux organic">
-                <SmartImage src="/images/principal.jpg" alt="A warm message from our Head of School" tone="crimson" className="aspect-[4/5] w-full" />
+                <SmartImage src="/images/dvpsowner.png" alt="A message from our Founder" tone="crimson" className="aspect-[3/4] w-full" />
               </div>
               <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-crimson-rich px-5 py-2 text-center text-xs font-semibold text-ivory shadow-lux">
                 Head of School

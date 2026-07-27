@@ -1,35 +1,54 @@
 /**
  * Superadmin Portal configuration & helpers.
  *
- * The one account allowed into the portal is defined by environment
- * variables — nothing is hard-coded here:
+ * The accounts allowed into the portal are defined entirely by environment
+ * variables — nothing is hard-coded here. Two vars feed the allowlist and are
+ * merged together, so you can use either (or both):
  *
- *   NEXT_PUBLIC_SUPERADMIN_EMAIL   the email allowed to sign in
- *                                  (e.g. contact.vsp@eldenheights.org)
- *   SUPERADMIN_PASSWORD            the password to set for that account
- *                                  when you create it in Firebase Auth
+ *   NEXT_PUBLIC_SUPERADMIN_EMAILS  comma/space/newline-separated list of
+ *                                  emails allowed to sign in
+ *   NEXT_PUBLIC_SUPERADMIN_EMAIL   a single allowed email (e.g.
+ *                                  contact.vsp@eldenheights.org)
+ *   SUPERADMIN_PASSWORD            the password to set for the account(s)
+ *                                  when you create them in Firebase Auth
  *                                  (server-only; never shipped to the browser)
  *
  * Authentication itself is performed by Firebase Authentication. You create
- * the account once (Firebase console → Authentication → Users → Add user, or
- * however you provision it) using the email + password above, and the portal
- * signs in against it. Because only the email is needed on the client to gate
- * access, the password is never exposed in the browser bundle.
+ * the account(s) once (Firebase console → Authentication → Users → Add user)
+ * using the email + password above, and the portal signs in against them.
+ * Because only the emails are needed on the client to gate access, the
+ * password is never exposed in the browser bundle.
  */
 
-/** Fallback keeps the intended superadmin visible even before env is wired. */
+/** Fallback keeps the intended superadmin allowed even before env is wired. */
 const DEFAULT_SUPERADMIN_EMAIL = "contact.vsp@eldenheights.org";
 
-/** The single email permitted to access the portal, normalised to lowercase. */
-export const SUPERADMIN_EMAIL = (
-  process.env.NEXT_PUBLIC_SUPERADMIN_EMAIL || DEFAULT_SUPERADMIN_EMAIL
-)
-  .trim()
-  .toLowerCase();
+/** Split a list env value on commas, semicolons or whitespace. */
+function parseEmailList(raw: string | undefined): string[] {
+  if (!raw) return [];
+  return raw
+    .split(/[\s,;]+/)
+    .map((e) => e.trim().toLowerCase())
+    .filter(Boolean);
+}
 
-/** Is the given email the configured superadmin? (case-insensitive) */
+/**
+ * The set of emails permitted to access the portal, normalised to lowercase.
+ * Merges the plural allowlist (NEXT_PUBLIC_SUPERADMIN_EMAILS) with the single
+ * NEXT_PUBLIC_SUPERADMIN_EMAIL, and falls back to the default if neither is set.
+ */
+export const SUPERADMIN_EMAILS: readonly string[] = (() => {
+  const set = new Set<string>([
+    ...parseEmailList(process.env.NEXT_PUBLIC_SUPERADMIN_EMAILS),
+    ...parseEmailList(process.env.NEXT_PUBLIC_SUPERADMIN_EMAIL),
+  ]);
+  if (set.size === 0) set.add(DEFAULT_SUPERADMIN_EMAIL);
+  return Array.from(set);
+})();
+
+/** Is the given email one of the configured superadmins? (case-insensitive) */
 export function isSuperadmin(email: string | null | undefined): boolean {
-  return !!email && email.trim().toLowerCase() === SUPERADMIN_EMAIL;
+  return !!email && SUPERADMIN_EMAILS.includes(email.trim().toLowerCase());
 }
 
 /**

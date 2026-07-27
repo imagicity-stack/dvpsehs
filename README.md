@@ -68,8 +68,10 @@ Authentication**. There is **no hard-coded password** anywhere in the code — t
 allowed account is defined entirely by environment variables, and the actual
 password lives only in Firebase.
 
-**Who can log in:** exactly one email — `NEXT_PUBLIC_SUPERADMIN_EMAIL`
-(default `contact.vsp@eldenheights.org`). Any other address is rejected.
+**Who can log in:** the emails in the allowlist — `NEXT_PUBLIC_SUPERADMIN_EMAILS`
+(comma-separated list) merged with `NEXT_PUBLIC_SUPERADMIN_EMAIL` (a single
+extra), defaulting to `contact.vsp@eldenheights.org`. Any address not on the
+list is rejected.
 
 ### One-time setup
 
@@ -77,10 +79,11 @@ password lives only in Firebase.
    [console.firebase.google.com](https://console.firebase.google.com).
 2. **Enable Email/Password sign-in:** Authentication → Sign-in method →
    Email/Password → Enable.
-3. **Add the superadmin user:** Authentication → Users → **Add user**, using the
-   email from `NEXT_PUBLIC_SUPERADMIN_EMAIL` and the password from
-   `SUPERADMIN_PASSWORD` (default `Password123`). This account now "directly
-   syncs" — the portal authenticates against exactly this Firebase user.
+3. **Add the superadmin user:** Authentication → Users → **Add user**, using an
+   email from the allowlist and the password from `SUPERADMIN_PASSWORD`
+   (default `Password123`). This account now "directly syncs" — the portal
+   authenticates against exactly this Firebase user. Repeat for each allowlisted
+   email you want to grant access.
 4. **Copy the web app config:** Project settings → *Your apps* → Web app, and
    fill in the `NEXT_PUBLIC_FIREBASE_*` values.
 5. Add all of these to `.env.local` (local) and **Vercel → Environment
@@ -89,8 +92,9 @@ password lives only in Firebase.
 
 | Variable | Purpose |
 |---|---|
-| `NEXT_PUBLIC_SUPERADMIN_EMAIL` | The one email allowed into `/portal`. |
-| `SUPERADMIN_PASSWORD` | The password to set on that account in Firebase (server-only; never sent to the browser). |
+| `NEXT_PUBLIC_SUPERADMIN_EMAILS` | Comma-separated allowlist of emails allowed into `/portal`. |
+| `NEXT_PUBLIC_SUPERADMIN_EMAIL` | One extra allowed email (merged into the list above). |
+| `SUPERADMIN_PASSWORD` | The password to set on the account(s) in Firebase (server-only; never sent to the browser). |
 | `NEXT_PUBLIC_FIREBASE_*` | Firebase web project config (6 values). |
 
 Then visit **`/portal`** → you'll be sent to `/portal/login`, sign in, and land

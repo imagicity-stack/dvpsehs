@@ -5,6 +5,7 @@ import "./globals.css";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { ChromeGate } from "@/components/layout/ChromeGate";
 import { site } from "@/lib/site";
 
 // Elegant high-contrast serif for headlines — the "luxury" voice.
@@ -98,10 +99,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <AnnouncementBar />
-        <Header />
+        <ChromeGate>
+          <AnnouncementBar />
+          <Header />
+        </ChromeGate>
         <main id="main">{children}</main>
-        <Footer />
+        <ChromeGate>
+          <Footer />
+        </ChromeGate>
       </body>
     </html>
   );

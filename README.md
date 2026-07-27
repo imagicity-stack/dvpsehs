@@ -20,6 +20,8 @@ Built with **Next.js (App Router) + TypeScript + Tailwind CSS**, designed for
   - **General contact** (`/contact`) → front-office inbox (`CONTACT_*` env vars)
 - **Image slots everywhere** with graceful illustrated fallbacks — see
   [`IMAGES.md`](./IMAGES.md) for the exact filenames to add.
+- **Superadmin Portal** (`/portal`) — a private, Firebase-authenticated area
+  for a single superadmin. See [Superadmin Portal](#superadmin-portal) below.
 - SEO essentials: sitemap, robots, Open Graph, canonical URLs, a custom 404.
 
 ---
@@ -56,6 +58,48 @@ Each prefix needs: `…_SMTP_HOST`, `…_SMTP_PORT`, `…_SMTP_SECURE`,
 Both routes include server-side validation, a hidden honeypot field, and
 light per-IP rate limiting. If SMTP isn't configured yet, the forms fail
 gracefully with a friendly message (and log the reason server-side).
+
+---
+
+## Superadmin Portal
+
+A private area at **`/portal`** for a single superadmin, gated by **Firebase
+Authentication**. There is **no hard-coded password** anywhere in the code — the
+allowed account is defined entirely by environment variables, and the actual
+password lives only in Firebase.
+
+**Who can log in:** exactly one email — `NEXT_PUBLIC_SUPERADMIN_EMAIL`
+(default `contact.vsp@eldenheights.org`). Any other address is rejected.
+
+### One-time setup
+
+1. **Create a Firebase project** (or reuse one) at
+   [console.firebase.google.com](https://console.firebase.google.com).
+2. **Enable Email/Password sign-in:** Authentication → Sign-in method →
+   Email/Password → Enable.
+3. **Add the superadmin user:** Authentication → Users → **Add user**, using the
+   email from `NEXT_PUBLIC_SUPERADMIN_EMAIL` and the password from
+   `SUPERADMIN_PASSWORD` (default `Password123`). This account now "directly
+   syncs" — the portal authenticates against exactly this Firebase user.
+4. **Copy the web app config:** Project settings → *Your apps* → Web app, and
+   fill in the `NEXT_PUBLIC_FIREBASE_*` values.
+5. Add all of these to `.env.local` (local) and **Vercel → Environment
+   Variables** (production). Full list with comments is in
+   [`.env.example`](./.env.example).
+
+| Variable | Purpose |
+|---|---|
+| `NEXT_PUBLIC_SUPERADMIN_EMAIL` | The one email allowed into `/portal`. |
+| `SUPERADMIN_PASSWORD` | The password to set on that account in Firebase (server-only; never sent to the browser). |
+| `NEXT_PUBLIC_FIREBASE_*` | Firebase web project config (6 values). |
+
+Then visit **`/portal`** → you'll be sent to `/portal/login`, sign in, and land
+on the superadmin dashboard. To change the password later, update it in the
+Firebase console (and keep `SUPERADMIN_PASSWORD` in sync for reference).
+
+> The portal is `noindex` and disallowed in `robots.txt`, so it stays out of
+> search engines. If the Firebase env vars are absent, the login screen shows a
+> clear "not connected to Firebase yet" notice instead of erroring.
 
 ---
 
